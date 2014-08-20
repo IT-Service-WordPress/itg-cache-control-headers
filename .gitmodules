@@ -1,0 +1,3 @@
+[submodule "wpf"]
+	path = wpf
+	url = git@github.com:IT-Service-WordPress/WPF.git
