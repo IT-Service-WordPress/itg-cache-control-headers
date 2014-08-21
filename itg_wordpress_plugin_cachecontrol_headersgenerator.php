@@ -42,24 +42,29 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 	) {
 		$expires = intval( \get_option( MAX_AGE, 3600 ) );
 		$no_cache = \get_option( NO_CACHE, false );
+		$cache_public = \get_option( CACHE_PUBLIC, false );
 		
-		$cache_control = new ComplexHeader(); // ( $headers[ 'Cache-Control' ] );
-		
-		if (
-			! $no_cache
-			&& ( $expires >= 0 )
-		) {
-			$cache_control->params[ 'public' ] = true;
+		if ( $no_cache ) {
+			$headers = array_merge( $headers, wp_get_nocache_headers() );
+		} else {
+			$cache_control = new ComplexHeader(); // ( $headers[ 'Cache-Control' ] );
+			
+			if ( $cache_public ) {
+				$cache_control->params[ 'public' ] = true;
+				$headers[ 'Pragma' ] = 'public';
+				$cache_control->params[ 's-maxage' ] = $expires;
+			} else {
+				$cache_control->params[ 'public' ] = false;
+				unset( $cache_control->params[ 's-maxage' ] );
+			};
 			$cache_control->params[ 'max-age' ] = $expires;
-			$cache_control->params[ 's-maxage' ] = $expires;
-			$headers[ 'Cache-Control' ] = $cache_control->get_value();
-			$headers[ 'Pragma' ] = 'public';
 			// http://tools.ietf.org/html/rfc7231#section-7.1.1.1
 			$headers[ 'Expires' ] = gmdate( 'D, d M Y H:i:s T', time() + $expires );
+
 			// $headers[ 'Vary' ] = LOGGED_IN_COOKIE;
-		} else {
-			$headers = array_merge( $headers, wp_get_nocache_headers() );
-		}
+			
+			$headers[ 'Cache-Control' ] = $cache_control->get_value();
+		};
 		
 		return $headers;
 	}
