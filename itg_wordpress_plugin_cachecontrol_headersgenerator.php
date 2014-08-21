@@ -38,7 +38,8 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		if ( $expires >= 0 ) {
 			$headers[ 'Pragma' ] = 'public';
 			$headers[ 'Cache-Control' ] = 'public, max-age=' . $expires;
-			$headers[ 'Expires' ] = gmdate( 'r', time() + $expires );
+			// http://tools.ietf.org/html/rfc7231#section-7.1.1.1
+			$headers[ 'Expires' ] = gmdate( 'D, d M Y H:i:s T', time() + $expires );
 			// $headers[ 'Vary' ] = LOGGED_IN_COOKIE;
 		} else {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
