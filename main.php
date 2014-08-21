@@ -22,6 +22,7 @@ WPF\Loader::_require_once( 'wpf_plugin_part_load_admin.php' );
 const TEXTDOMAIN = 'itg-cache-control-headers';
 const MAX_AGE = 'cache-control-max-age-default';
 const NO_CACHE = 'cache-control-no-cache';
+const NO_STORE = 'cache-control-no-store';
 const CACHE_PUBLIC = 'cache-control-cache-public';
 const CACHE_PRIVATE = 'cache-control-cache-private';
 

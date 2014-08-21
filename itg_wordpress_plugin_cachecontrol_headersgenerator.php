@@ -47,7 +47,8 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		} elseif ( '*' == $no_cache ) {
 			$no_cache = true;
 		};
-		$cache_public = \get_option( CACHE_PUBLIC, false );
+		$no_store = (bool) \get_option( NO_STORE, false );
+		$cache_public = (bool) \get_option( CACHE_PUBLIC, false );
 		$cache_private = \get_option( CACHE_PRIVATE, false );
 		if ( empty( $cache_private ) ) {
 			$cache_private = false;
@@ -62,6 +63,9 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			
 			if ( $no_cache ) {
 				$cache_control->params[ 'no-cache' ] = $no_cache;
+			};
+			if ( $no_store ) {
+				$cache_control->params[ 'no-store' ] = $no_store;
 			};
 			if (
 				$cache_public
