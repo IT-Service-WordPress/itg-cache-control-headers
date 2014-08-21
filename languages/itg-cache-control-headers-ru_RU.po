@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: itg-cache-control-headers\n"
-"POT-Creation-Date: 2014-08-21 12:49+0400\n"
-"PO-Revision-Date: 2014-08-21 12:49+0400\n"
+"POT-Creation-Date: 2014-08-21 14:57+0400\n"
+"PO-Revision-Date: 2014-08-21 14:58+0400\n"
 "Last-Translator: Sergey S. Betke <sergey.s.betke@yandex.ru>\n"
 "Language-Team:  <sergey.s.betke@yandex.ru>\n"
 "Language: ru_RU\n"
@@ -38,19 +38,29 @@ msgstr ""
 msgid "Sergey S. Betke"
 msgstr "Бетке Сергей Сергеевич"
 
-#: main-admin.php:21
+#: main-admin.php:23
 msgid "Cache-Control <code>max-age</code> must be positive integer."
 msgstr "Значение <code>max-age</code> должно быть целым положительным числом."
 
-#: main-admin.php:31
+#: main-admin.php:43
 msgid "HTTP 1.1 Cache-Control headers options"
 msgstr "Параметры заголовков HTTP 1.1 Cache-Control"
 
-#: main-admin.php:35
+#: main-admin.php:47
+msgid "Disable cache"
+msgstr "Запретить кеширование"
+
+#: main-admin.php:48
+msgid "Fully disable server, client (browser) and proxy servers cache."
+msgstr ""
+"Полностью запрещает кеширование на стороне сервера, клиента (браузера) и "
+"прокси-серверов."
+
+#: main-admin.php:53
 msgid "Default <code>max-age</code> value"
 msgstr "<code>max-age</code> (по умолчанию)"
 
-#: main-admin.php:36
+#: main-admin.php:54
 msgid ""
 "Default <a href=\"http://tools.ietf.org/html/rfc7234#section-5.2.2.8\" "
 "target=\"_blank\"><code>max-age</code></a> value (max cache time-to-live, "

@@ -21,6 +21,7 @@ WPF\Loader::_require_once( 'wpf_plugin_part_load_admin.php' );
 
 const TEXTDOMAIN = 'itg-cache-control-headers';
 const MAX_AGE = 'cache-control-max-age-default';
+const NO_CACHE = 'cache-control-no-cache';
 
 require_once( 'itg_wordpress_plugin_cachecontrol_headersgenerator.php' );
 
