@@ -21,8 +21,17 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 	public
 	function bind_action_handlers_and_filters() {
 		if ( ! \is_admin() ) {
-			\add_action( 'wp_headers', array( &$this, 'filter_http_headers' ), 10, 2 );
+			\add_filter( 'nocache_headers', array( &$this, 'filter_http_nocache_headers' ) );
+			\add_filter( 'wp_headers', array( &$this, 'filter_http_headers' ), 10, 2 );
 		};
+	}
+
+	public
+	function filter_http_nocache_headers(
+		$headers
+	) {
+		$headers[ 'Cache-Control' ] = 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0';
+		return $headers;
 	}
 
 	public
@@ -38,12 +47,13 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			&& ( $expires >= 0 )
 		) {
 			$headers[ 'Pragma' ] = 'public';
-			$headers[ 'Cache-Control' ] = 'public, max-age=' . $expires;
+			$headers[ 'Cache-Control' ] = 'public, max-age=' . $expires . ', s-maxage=' . $expires;
 			// http://tools.ietf.org/html/rfc7231#section-7.1.1.1
 			$headers[ 'Expires' ] = gmdate( 'D, d M Y H:i:s T', time() + $expires );
 			// $headers[ 'Vary' ] = LOGGED_IN_COOKIE;
 		} else {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
+			$test = 'Cache-Control	no-cache, must-revalidate, max-age=0';
 		}
 		
 		return $headers;
