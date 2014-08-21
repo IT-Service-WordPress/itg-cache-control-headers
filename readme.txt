@@ -58,6 +58,10 @@ This section describes how to install the plugin and get it working.
 
 Just read "installation" section.
 
+= Use shared WPF installation = 
+
+Please, read [installation manual](https://github.com/IT-Service-WordPress/wpf-v1-mu-plugin/wiki/).
+
 == Screenshots ==
 
 == ToDo ==
