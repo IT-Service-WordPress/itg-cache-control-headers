@@ -34,8 +34,12 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		, $wp
 	) {
 		$expires = \get_option( MAX_AGE, 3600 );
+		$no_cache = \get_option( NO_CACHE, false );
 		
-		if ( $expires >= 0 ) {
+		if (
+			! $no_cache
+			&& ( $expires >= 0 )
+		) {
 			$headers[ 'Pragma' ] = 'public';
 			$headers[ 'Cache-Control' ] = 'public, max-age=' . $expires;
 			// http://tools.ietf.org/html/rfc7231#section-7.1.1.1
