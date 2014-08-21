@@ -12,7 +12,8 @@ Automatically send HTTP 1.1 headers "Cache-control", "Pragma" and "Expires".
 
 == Description ==
 
-Automatically send HTTP 1.1 headers "Cache-control", "Pragma" and "Expires".
+Automatically send HTTP 1.1 headers "Cache-control", "Pragma" and "Expires"
+([RFC 7234](<http://www.rfc-editor.org/rfc/rfc7234.txt> "Hypertext Transfer Protocol (HTTP/1.1): Caching")).
 You can set cache TTL in options page.
 
 Check plugin options on options page.
