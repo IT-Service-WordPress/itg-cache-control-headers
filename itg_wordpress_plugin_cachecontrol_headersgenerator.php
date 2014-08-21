@@ -23,9 +23,6 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		if ( ! \is_admin() ) {
 			\add_action( 'wp_headers', array( &$this, 'filter_http_headers' ), 10, 2 );
 		};
-		if ( \WP_DEBUG ) {
-			\add_filter( 'wp_headers', array( &$this, 'filter_http_debug_headers' ), 10, 2 );
-		};
 	}
 
 	public
@@ -49,15 +46,6 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
 		}
 		
-		return $headers;
-	}
-
-	public
-	function filter_http_debug_headers(
-		$headers
-		, $wp
-	) {
-		$headers[ 'X-Debug' ] = 'plugin="ITG Cache-Control headers"';
 		return $headers;
 	}
 
