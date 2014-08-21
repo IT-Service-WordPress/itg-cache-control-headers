@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: itg-cache-control-headers\n"
+"POT-Creation-Date: 2014-08-21 12:49+0400\n"
+"PO-Revision-Date: 2014-08-21 12:49+0400\n"
+"Last-Translator: Sergey S. Betke <sergey.s.betke@yandex.ru>\n"
+"Language-Team:  <sergey.s.betke@yandex.ru>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: wpf\n"
+
+#: _header-strings.php:2
+msgid "ITG Cache-Control headers"
+msgstr "Поддержка HTTP 1.1 Cache-Control"
+
+#: _header-strings.php:3
+msgid ""
+"Automatically send HTTP 1.1 headers \"Cache-control\", \"Pragma\" and "
+"\"Expires\" (<a href=\"http://tools.ietf.org/html/rfc7234\" target=\"_blank"
+"\">RFC 7234</a>)."
+msgstr ""
+"Плагин позволяет формировать заголовки HTTP 1.1 \"Cache-control\", \"Pragma"
+"\", \"Expires\" и другие (<a href=\"http://tools.ietf.org/html/rfc7234\" "
+"target=\"_blank\">RFC 7234</a>)."
+
+#: _header-strings.php:4
+msgid "Sergey S. Betke"
+msgstr "Бетке Сергей Сергеевич"
+
+#: main-admin.php:21
+msgid "Cache-Control <code>max-age</code> must be positive integer."
+msgstr "Значение <code>max-age</code> должно быть целым положительным числом."
+
+#: main-admin.php:31
+msgid "HTTP 1.1 Cache-Control headers options"
+msgstr "Параметры заголовков HTTP 1.1 Cache-Control"
+
+#: main-admin.php:35
+msgid "Default <code>max-age</code> value"
+msgstr "<code>max-age</code> (по умолчанию)"
+
+#: main-admin.php:36
+msgid ""
+"Default <a href=\"http://tools.ietf.org/html/rfc7234#section-5.2.2.8\" "
+"target=\"_blank\"><code>max-age</code></a> value (max cache time-to-live, "
+"seconds) for html wordpress pages."
+msgstr ""
+"Значение по умолчанию параметра <a href=\"http://tools.ietf.org/html/"
+"rfc7234#section-5.2.2.8\" target=\"_blank\"><code>max-age</code></a> "
+"(максимальное время жизни в кеше, в секундах) для генерируемых wordpress "
+"страниц."
+
+#~ msgid "<a href=\"%2$s\" target=\"_blank\">About plugin</a>"
+#~ msgstr "<a href=\"%2$s\" target=\"_blank\">О плагине</a>"
+
+#~ msgid "<a href=\"%2$s\" target=\"_blank\">About author</a>"
+#~ msgstr "<a href=\"%2$s\" target=\"_blank\">Об авторе</a>"
+
+#~ msgid "Plugin \"%1$s\" compatibility check produced errors."
+#~ msgstr ""
+#~ "При проверке требований программной совместимости плагина \"%1$s\" "
+#~ "выявлены ошибки."
+
+#~ msgid ""
+#~ "PHP %1$s or newer is required. Current version - %2$s. <a href=\"%3$s"
+#~ "\">Please update!</a>"
+#~ msgstr ""
+#~ "Требуется PHP версии %1$s или более поздней. Текущая версия - %2$s. <a "
+#~ "href=\"%3$s\">Пожалуйста обновите!</a>"
+
+#~ msgid ""
+#~ "WordPress %1$s or newer is required. Current version - %2$s. <a href="
+#~ "\"%3$s\">Please update!</a>"
+#~ msgstr ""
+#~ "Требуется WordPress версии %1$s или более поздней. Текущая версия - %2$s. "
+#~ "<a href=\"%3$s\">Пожалуйста обновите!</a>"
+
+#~ msgid ""
+#~ "Plugin coding error: class <code>%2$s</code> doesn`t support component "
+#~ "<code>%3$s</code>. Components must implement <code>%4$s</code> interface."
+#~ msgstr ""
+#~ "Ошибка в коде плагина: класс <code>%2$s</code> не поддерживает "
+#~ "компонент<code>%3$s</code>. Компонент должен реализовать интерфейс<code>"
+#~ "%4$s</code>."
+
+#~ msgid ""
+#~ "Plugin \"%1$s\" coding error: settings page <code>%2$s</code> requires "
+#~ "<code>%3$s</code> settings section, but specified section doesn`t exists."
+#~ msgstr ""
+#~ "Ошибка в коде плагина \"%1$s\": страница настроек <code>%2$s</code> "
+#~ "требует секции настроек с id=<code>%3$s</code>, но секции настроек с "
+#~ "указанным id в плагине не обнаружено."
+
+#~ msgid ""
+#~ "Plugin \"%1$s\" coding error: component <code>%2$s</code> must be "
+#~ "associated with an instance of settings page, not with the instance of "
+#~ "the plugin directly."
+#~ msgstr ""
+#~ "Ошибка в коде плагина \"%1$s\": компонент <code>%2$s</code> должен быть "
+#~ "связан со страницей настроек, а не с экземпляром плагина непосредственно."
+
+#~ msgid ""
+#~ "<a href=\"%2$s\">Review plugin \"%1$s\" settings</a>. Plugin was "
+#~ "installed or updated."
+#~ msgstr ""
+#~ "<a href=\"%2$s\">Проверьте настройки плагина \"%1$s\"</a>. Указанный "
+#~ "плагин был недавно установлен или обновлён."
+
+#~ msgid "Plugin <strong>deactivated</strong>."
+#~ msgstr "Плагин <strong>деактивирован</strong>."
+
+#~ msgid ""
+#~ "Plugin \"%1$s\" coding error: component <code>%2$s</code> requires <code>"
+#~ "%3$s</code> component in plugin."
+#~ msgstr ""
+#~ "Ошибка в коде плагина \"%1$s\": для компонента <code>%2$s</code> "
+#~ "ожидается наличие компонента с интерфейсом <code>%3$s</code> в плагине. "
+#~ "Включите необходимый компонент в плагин."
+
+#~ msgid "WordPress plugin framework WPF v1"
+#~ msgstr "WPF фреймворк"
+
+#~ msgid ""
+#~ "This plugin only provides a shared copy of the WPF framework (version 1) "
+#~ "for other plugins. Use this plugin allows you to use the wordpress update "
+#~ "mechanism to update the WPF framework."
+#~ msgstr ""
+#~ "Этот плагин лишь предоставляет разделяемую другими плагинами копию "
+#~ "фреймворка WPF. Использование этого плагина позволяет использовать "
+#~ "механизм обновлений WordPress для обновления Фреймворка WPF."
