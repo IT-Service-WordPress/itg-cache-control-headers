@@ -34,9 +34,7 @@ new WPF\Plugin\Part\Advanced (
 			null
 			, null
 			, null
-			, function ( $value ) {
-				return \filter_var( $value, \FILTER_VALIDATE_BOOLEAN );
-			}
+			, \FILTER_VALIDATE_BOOLEAN
 		)
 	)
 	
