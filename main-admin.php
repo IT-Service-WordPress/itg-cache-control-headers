@@ -20,9 +20,7 @@ new WPF\TextDomain\Plugin( TEXTDOMAIN, __FILE__ );
 
 new WPF\Plugin\Part\Advanced (
  
-	new WPF\Setting\PluginSetting( NO_CACHE, false, true,
-		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
-	)
+	new WPF\Setting\PluginSetting( NO_CACHE, false )
 	, new WPF\Setting\PluginSetting( CACHE_PUBLIC, true, true,
 		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
 	)
@@ -39,11 +37,11 @@ new WPF\Plugin\Part\Advanced (
 	
 	, new WPF\GUI\Setting\Page\PluginOptions(
 		new WPF\GUI\Setting\Page\Section\Base( 'main', __( 'HTTP 1.1 Cache-Control headers options', TEXTDOMAIN )
-			, new WPF\GUI\Setting\Page\Control\CheckBox(
+			, new WPF\GUI\Setting\Page\Control\Input(
 				NO_CACHE
 				, NO_CACHE
-				, __( 'Disable cache', TEXTDOMAIN )
-				, __( 'Fully disable server, client (browser) and proxy servers cache.', TEXTDOMAIN )
+				, __( 'Disable cache for headers', TEXTDOMAIN )
+				, __( 'Disable cache for specified HTTP headers, but enable cache for other parts of response. <code>*</code> - fully disable server, client (browser) and proxy servers cache, <code>""</code> - don\'t disable cache.', TEXTDOMAIN )
 			)
 			, new WPF\GUI\Setting\Page\Control\CheckBox(
 				CACHE_PUBLIC

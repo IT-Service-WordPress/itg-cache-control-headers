@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: itg-cache-control-headers\n"
-"POT-Creation-Date: 2014-08-22 00:20+0400\n"
-"PO-Revision-Date: 2014-08-22 00:25+0400\n"
+"POT-Creation-Date: 2014-08-22 01:01+0400\n"
+"PO-Revision-Date: 2014-08-22 01:03+0400\n"
 "Last-Translator: Sergey S. Betke <sergey.s.betke@yandex.ru>\n"
 "Language-Team:  <sergey.s.betke@yandex.ru>\n"
 "Language: ru_RU\n"
@@ -38,29 +38,34 @@ msgstr ""
 msgid "Sergey S. Betke"
 msgstr "Бетке Сергей Сергеевич"
 
-#: main-admin.php:31
+#: main-admin.php:29
 msgid "Cache-Control <code>max-age</code> must be positive integer."
 msgstr "Значение <code>max-age</code> должно быть целым положительным числом."
 
-#: main-admin.php:41
+#: main-admin.php:39
 msgid "HTTP 1.1 Cache-Control headers options"
 msgstr "Параметры заголовков HTTP 1.1 Cache-Control"
 
-#: main-admin.php:45
-msgid "Disable cache"
-msgstr "Запретить кэширование"
+#: main-admin.php:43
+msgid "Disable cache for headers"
+msgstr "Запретить кэширование для заголовков"
 
-#: main-admin.php:46
-msgid "Fully disable server, client (browser) and proxy servers cache."
+#: main-admin.php:44
+msgid ""
+"Disable cache for specified HTTP headers, but enable cache for other parts "
+"of response. <code>*</code> - fully disable server, client (browser) and "
+"proxy servers cache, <code>\"\"</code> - don't disable cache."
 msgstr ""
-"Полностью запрещает кэширование на стороне сервера, клиента (браузера) и "
-"прокси-серверов."
+"Запретить кэширование указанных заголовков HTTP, но разрешить кэширование "
+"остальной части ответа. <code>*</code> - полностью запретить кэширование "
+"ответов, как на прокси-серверах, так и в браузерах, <code>\"\"</code> - не "
+"запрещать кэширование."
 
-#: main-admin.php:51
+#: main-admin.php:49
 msgid "Enable public cache"
 msgstr "Разрешить общий кэш"
 
-#: main-admin.php:52
+#: main-admin.php:50
 msgid ""
 "Enable public cache (client (browser) and proxy servers cache) - <a href="
 "\"http://tools.ietf.org/html/rfc7234#section-5.2.2.5\" target=\"_blank"
@@ -71,11 +76,11 @@ msgstr ""
 "rfc7234#section-5.2.2.5\" target=\"_blank\"><code>public</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:57
+#: main-admin.php:55
 msgid "Default <code>max-age</code> value"
 msgstr "<code>max-age</code> (по умолчанию)"
 
-#: main-admin.php:58
+#: main-admin.php:56
 msgid ""
 "Default <a href=\"http://tools.ietf.org/html/rfc7234#section-5.2.2.8\" "
 "target=\"_blank\"><code>max-age</code></a> value (max cache time-to-live, "
@@ -86,11 +91,11 @@ msgstr ""
 "(максимальное время жизни в кэше, в секундах) для генерируемых wordpress "
 "страниц."
 
-#: main-admin.php:64
+#: main-admin.php:62
 msgid "RFC 7234"
 msgstr "RFC 7234"
 
-#: main-admin.php:65
+#: main-admin.php:63
 msgid ""
 "<p><a href=\"http://tools.ietf.org/html/rfc7234\" target=\"_blank\">RFC "
 "7234</a> defines HTTP caches and the associated header fields that control "
@@ -104,6 +109,11 @@ msgstr ""
 "кеширования HTTP ответов.</p><p>Пожалуйста <a href=\"http://tools.ietf.org/"
 "html/rfc7234\" target=\"_blank\">прочитайте указанный документ</a> перед "
 "использованием данного плагина.</p>"
+
+#~ msgid "Fully disable server, client (browser) and proxy servers cache."
+#~ msgstr ""
+#~ "Полностью запрещает кэширование на стороне сервера, клиента (браузера) и "
+#~ "прокси-серверов."
 
 #~ msgid "<a href=\"%2$s\" target=\"_blank\">About plugin</a>"
 #~ msgstr "<a href=\"%2$s\" target=\"_blank\">О плагине</a>"

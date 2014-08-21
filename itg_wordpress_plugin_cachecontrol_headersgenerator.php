@@ -42,13 +42,21 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 	) {
 		$expires = intval( \get_option( MAX_AGE, 3600 ) );
 		$no_cache = \get_option( NO_CACHE, false );
+		if ( empty( $no_cache ) ) {
+			$no_cache = false;
+		} elseif ( '*' == $no_cache ) {
+			$no_cache = true;
+		};
 		$cache_public = \get_option( CACHE_PUBLIC, false );
 		
-		if ( $no_cache ) {
+		if ( true === $no_cache ) {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
 		} else {
 			$cache_control = new ComplexHeader(); // ( $headers[ 'Cache-Control' ] );
 			
+			if ( $no_cache ) {
+				$cache_control->params[ 'no-cache' ] = $no_cache;
+			};
 			if ( $cache_public ) {
 				$cache_control->params[ 'public' ] = true;
 				$headers[ 'Pragma' ] = 'public';
