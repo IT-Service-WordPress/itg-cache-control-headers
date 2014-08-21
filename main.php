@@ -15,20 +15,19 @@ namespace ITG\WordPress\Plugin\CacheControl;
 
 use \WPF\v1 as WPF;
 
-require_once ( 'wpf' . DIRECTORY_SEPARATOR . 'wpf_inc.php' );
+require_once( 'wpf' . DIRECTORY_SEPARATOR . 'wpf_inc.php' );
 WPF\Loader::_require_once( 'wpf_plugin_base.php' );
-WPF\Loader::_require_once( 'wpf_setting_base.php' );
-WPF\Loader::_require_once( 'wpf_setting_pluginsetting.php' );
-WPF\Loader::_require_once( 'wpf_setting_validator_base.php' );
 WPF\Loader::_require_once( 'wpf_plugin_part_load_admin.php' );
-// WPF\Loader::_require_once( 'wpf_textdomain_plugin.php' );
 
 const TEXTDOMAIN = 'itg-cache-control-headers';
+const MAX_AGE = 'cache-control-max-age-default';
 
-// new WPF\TextDomain\Plugin( 'itg-cache-control-headers', __FILE__ );
+require_once( 'itg_wordpress_plugin_cachecontrol_headersgenerator.php' );
 
 new WPF\Plugin\Base (
 	__FILE__
+
+	, new HeadersGenerator()
 
 	, new WPF\Plugin\Part\Load\Admin()
 );
