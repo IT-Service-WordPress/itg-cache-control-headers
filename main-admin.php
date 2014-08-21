@@ -13,6 +13,7 @@ WPF\Loader::_require_once( 'wpf_gui_setting_page_pluginoptions.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_section_base.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_control_input.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_control_checkbox.php' );
+WPF\Loader::_require_once( 'wpf_gui_setting_page_component_help_tab.php' );
 
 new WPF\TextDomain\WPF( WPF\WPF_ADMINTEXTDOMAIN );
 new WPF\TextDomain\Plugin( TEXTDOMAIN, __FILE__ );
@@ -54,17 +55,12 @@ new WPF\Plugin\Part\Advanced (
 			)
 		)
 
-	/*
 		, new WPF\GUI\Setting\Page\Component\Help\Base(
 			new WPF\GUI\Setting\Page\Component\Help\PluginData()
-			, new WPF\GUI\Setting\Page\Component\Help\Tab( 'id', __( 'title' )
-				, __( '<p>Содержание справки.</p>' )
-			)
-			, new WPF\GUI\Setting\Page\Component\Help\Tab( 'id2', __( '<a href="%2$s" target="_blank">About author</a>', \WPF\v1\WPF_ADMINTEXTDOMAIN )
-				, __( '<p>Содержание справки 2.</p>' )
+			, new WPF\GUI\Setting\Page\Component\Help\Tab( 'rfc7234', __( 'RFC 7234', TEXTDOMAIN )
+				, __( '<p><a href="http://tools.ietf.org/html/rfc7234" target="_blank">RFC 7234</a> defines HTTP caches and the associated header fields that control cache behavior or indicate cacheable response messages.</p><p>Please, <a href="http://tools.ietf.org/html/rfc7234" target="_blank">read this document</a> before using this plugin.</p>', TEXTDOMAIN )
 			)
 		)
-	*/
 	)
 );
 
