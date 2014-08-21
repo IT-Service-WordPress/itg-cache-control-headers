@@ -48,6 +48,12 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			$no_cache = true;
 		};
 		$cache_public = \get_option( CACHE_PUBLIC, false );
+		$cache_private = \get_option( CACHE_PRIVATE, false );
+		if ( empty( $cache_private ) ) {
+			$cache_private = false;
+		} elseif ( '*' == $cache_private ) {
+			$cache_private = true;
+		};
 		
 		if ( true === $no_cache ) {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
@@ -57,13 +63,19 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			if ( $no_cache ) {
 				$cache_control->params[ 'no-cache' ] = $no_cache;
 			};
-			if ( $cache_public ) {
+			if (
+				$cache_public
+				&& ! ( true === $cache_private )
+			) {
 				$cache_control->params[ 'public' ] = true;
 				$headers[ 'Pragma' ] = 'public';
 				$cache_control->params[ 's-maxage' ] = $expires;
 			} else {
 				$cache_control->params[ 'public' ] = false;
 				unset( $cache_control->params[ 's-maxage' ] );
+			};
+			if ( $cache_private ) {
+				$cache_control->params[ 'private' ] = $cache_private;
 			};
 			$cache_control->params[ 'max-age' ] = $expires;
 			// http://tools.ietf.org/html/rfc7231#section-7.1.1.1

@@ -24,6 +24,7 @@ new WPF\Plugin\Part\Advanced (
 	, new WPF\Setting\PluginSetting( CACHE_PUBLIC, true, true,
 		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
 	)
+	, new WPF\Setting\PluginSetting( CACHE_PRIVATE, false )
 	, new WPF\Setting\PluginSetting( MAX_AGE, 3600, true,
 		new WPF\Setting\Validate\Base( 
 			__( 'Cache-Control <code>max-age</code> must be positive integer.', TEXTDOMAIN )
@@ -48,6 +49,12 @@ new WPF\Plugin\Part\Advanced (
 				, CACHE_PUBLIC
 				, __( 'Enable public cache', TEXTDOMAIN )
 				, __( 'Enable public cache (client (browser) and proxy servers cache) - <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.5" target="_blank"><code>public</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
+			)
+			, new WPF\GUI\Setting\Page\Control\Input(
+				CACHE_PRIVATE
+				, CACHE_PRIVATE
+				, __( 'Disable public cache for headers', TEXTDOMAIN )
+				, __( 'Disable public cache for specified HTTP headers, but don\'t disable public cache for other parts of response. <code>*</code> - fully disable public (proxy servers) cache, <code>""</code> - don\'t disable public cache.', TEXTDOMAIN )
 			)
 			, new WPF\GUI\Setting\Page\Control\Input(
 				MAX_AGE
