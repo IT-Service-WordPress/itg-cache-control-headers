@@ -45,7 +45,7 @@ new WPF\Plugin\Part\Advanced (
 				NO_CACHE
 				, NO_CACHE
 				, __( 'Disable cache for headers', TEXTDOMAIN )
-				, __( 'Disable cache for specified HTTP headers, but enable cache for other parts of response. <code>*</code> - fully disable server, client (browser) and proxy servers cache, <code>""</code> - don\'t disable cache.', TEXTDOMAIN )
+				, __( 'Disable cache for specified HTTP headers, but enable cache for other parts of response. <code>*</code> - fully disable server, client (browser) and proxy servers cache, <code>""</code> - don\'t disable cache. <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.2" target="_blank"><code>no-cache</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
 			)
 			, new WPF\GUI\Setting\Page\Control\CheckBox(
 				NO_STORE
@@ -63,7 +63,7 @@ new WPF\Plugin\Part\Advanced (
 				CACHE_PRIVATE
 				, CACHE_PRIVATE
 				, __( 'Disable public cache for headers', TEXTDOMAIN )
-				, __( 'Disable public cache for specified HTTP headers, but don\'t disable public cache for other parts of response. <code>*</code> - fully disable public (proxy servers) cache, <code>""</code> - don\'t disable public cache.', TEXTDOMAIN )
+				, __( 'Disable public cache for specified HTTP headers, but don\'t disable public cache for other parts of response. <code>*</code> - fully disable public (proxy servers) cache, <code>""</code> - don\'t disable public cache. <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.6" target="_blank"><code>private</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
 			)
 			, new WPF\GUI\Setting\Page\Control\Input(
 				MAX_AGE
