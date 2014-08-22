@@ -143,6 +143,12 @@ new WPF\Plugin\Part\Advanced (
 				, __( '<p><a href="http://tools.ietf.org/html/rfc7234" target="_blank">RFC 7234</a> defines HTTP caches and the associated header fields that control cache behavior or indicate cacheable response messages.</p><p>Please, <a href="http://tools.ietf.org/html/rfc7234" target="_blank">read this document</a> before using this plugin.</p>', TEXTDOMAIN )
 			)
 		)
+		, new WPF\GUI\Setting\Page\Component\Help\Base(
+			new WPF\GUI\Setting\Page\Component\Help\PluginData()
+			, new WPF\GUI\Setting\Page\Component\Help\Tab( 'rfc5861', __( 'RFC 5861', TEXTDOMAIN )
+				, __( '<p><a href="http://tools.ietf.org/html/rfc5861" target="_blank">RFC 5861</a> defines two independent HTTP Cache-Control extensions that allow control over the use of stale responses by caches.</p>', TEXTDOMAIN )
+			)
+		)
 	)
 );
 
