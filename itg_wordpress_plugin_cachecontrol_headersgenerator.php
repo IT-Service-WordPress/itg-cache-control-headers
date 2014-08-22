@@ -57,6 +57,7 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		};
 		$must_revalidate = (bool) \get_option( MUST_REVALIDATE, false );
 		$proxy_revalidate = (bool) \get_option( PROXY_REVALIDATE, false );
+		$no_transform = (bool) \get_option( NO_TRANSFORM, false );
 		
 		if ( true === $no_cache ) {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
@@ -87,6 +88,7 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			} else {
 				$cache_control->params[ 'proxy-revalidate' ] = false;
 			};
+			$cache_control->params[ 'no-transform' ] = $no_transform;
 			$cache_control->params[ 'max-age' ] = $expires;
 			// http://tools.ietf.org/html/rfc7231#section-7.1.1.1
 			$headers[ 'Expires' ] = gmdate( 'D, d M Y H:i:s T', time() + $expires );

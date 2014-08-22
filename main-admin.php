@@ -44,6 +44,9 @@ new WPF\Plugin\Part\Advanced (
 	, new WPF\Setting\PluginSetting( PROXY_REVALIDATE, false, true,
 		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
 	)
+	, new WPF\Setting\PluginSetting( NO_TRANSFORM, false, true,
+		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
+	)
 	
 	, new WPF\GUI\Setting\Page\PluginOptions(
 		new WPF\GUI\Setting\Page\Section\Base( 'main', __( 'HTTP 1.1 Cache-Control headers options', TEXTDOMAIN )
@@ -88,6 +91,12 @@ new WPF\Plugin\Part\Advanced (
 				, PROXY_REVALIDATE
 				, __( 'Doesn\'t use stale cache on proxy servers', TEXTDOMAIN )
 				, __( 'If cache content on proxy servers to become stale, a cache <strong>must not</strong> use the response to satisfy requests without successful validation on the origin server. But private (browser) cache can use stale content. <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.7" target="_blank"><code>proxy-revalidate</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
+			)
+			, new WPF\GUI\Setting\Page\Control\CheckBox(
+				'no_transform'
+				, NO_TRANSFORM
+				, __( 'Don\'t transform content parts in cache', TEXTDOMAIN )
+				, __( 'Cache (regardless of whether it implements a cache) <strong>must not</strong> transform the payload, as defined in <a href="http://tools.ietf.org/html/rfc7230#section-5.7.2" target="_blank">Section 5.7.2 of RFC 7230</a>. <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.4" target="_blank"><code>no-transform</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
 			)
 		)
 

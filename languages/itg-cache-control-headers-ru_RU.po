@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: itg-cache-control-headers\n"
-"POT-Creation-Date: 2014-08-22 11:37+0400\n"
-"PO-Revision-Date: 2014-08-22 11:37+0400\n"
+"POT-Creation-Date: 2014-08-22 12:14+0400\n"
+"PO-Revision-Date: 2014-08-22 12:16+0400\n"
 "Last-Translator: Sergey S. Betke <sergey.s.betke@yandex.ru>\n"
 "Language-Team:  <sergey.s.betke@yandex.ru>\n"
 "Language: ru_RU\n"
@@ -42,15 +42,15 @@ msgstr "Бетке Сергей Сергеевич"
 msgid "Cache-Control <code>max-age</code> must be positive integer."
 msgstr "Значение <code>max-age</code> должно быть целым положительным числом."
 
-#: main-admin.php:49
+#: main-admin.php:52
 msgid "HTTP 1.1 Cache-Control headers options"
 msgstr "Параметры заголовков HTTP 1.1 Cache-Control"
 
-#: main-admin.php:53
+#: main-admin.php:56
 msgid "Disable cache for headers"
 msgstr "Запретить кэширование для заголовков"
 
-#: main-admin.php:54
+#: main-admin.php:57
 msgid ""
 "Disable cache for specified HTTP headers, but enable cache for other parts "
 "of response. <code>*</code> - fully disable server, client (browser) and "
@@ -65,11 +65,11 @@ msgstr ""
 "rfc7234#section-5.2.2.2\" target=\"_blank\"><code>no-cache</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:59
+#: main-admin.php:62
 msgid "Disable permanent cache storage"
 msgstr "Запретить долговременное кэширование"
 
-#: main-admin.php:60
+#: main-admin.php:63
 msgid ""
 "Disable permanent cache storage (for security reasons) - <a href=\"http://"
 "tools.ietf.org/html/rfc7234#section-5.2.2.3\" target=\"_blank\"><code>no-"
@@ -80,11 +80,11 @@ msgstr ""
 "rfc7234#section-5.2.2.3\" target=\"_blank\"><code>no-store</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:65
+#: main-admin.php:68
 msgid "Enable public cache"
 msgstr "Разрешить общий кэш"
 
-#: main-admin.php:66
+#: main-admin.php:69
 msgid ""
 "Enable public cache (client (browser) and proxy servers cache) - <a href="
 "\"http://tools.ietf.org/html/rfc7234#section-5.2.2.5\" target=\"_blank"
@@ -95,11 +95,11 @@ msgstr ""
 "rfc7234#section-5.2.2.5\" target=\"_blank\"><code>public</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:71
+#: main-admin.php:74
 msgid "Disable public cache for headers"
 msgstr "Запретить общее кэширование для заголовков"
 
-#: main-admin.php:72
+#: main-admin.php:75
 msgid ""
 "Disable public cache for specified HTTP headers, but don't disable public "
 "cache for other parts of response. <code>*</code> - fully disable public "
@@ -114,11 +114,11 @@ msgstr ""
 "rfc7234#section-5.2.2.6\" target=\"_blank\"><code>private</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:77
+#: main-admin.php:80
 msgid "Default <code>max-age</code> value"
 msgstr "<code>max-age</code> (по умолчанию)"
 
-#: main-admin.php:78
+#: main-admin.php:81
 msgid ""
 "Default <a href=\"http://tools.ietf.org/html/rfc7234#section-5.2.2.8\" "
 "target=\"_blank\"><code>max-age</code></a> value (max cache time-to-live, "
@@ -129,11 +129,11 @@ msgstr ""
 "(максимальное время жизни в кэше, в секундах) для генерируемых wordpress "
 "страниц."
 
-#: main-admin.php:83
+#: main-admin.php:86
 msgid "Doesn't use stale cache"
 msgstr "Не использовать устаревшее содержимое кэша"
 
-#: main-admin.php:84
+#: main-admin.php:87
 msgid ""
 "If cache content to become stale, a cache <strong>must not</strong> use the "
 "response to satisfy requests without successful validation on the origin "
@@ -148,11 +148,11 @@ msgstr ""
 "href=\"http://tools.ietf.org/html/rfc7234#section-5.2.2.1\" target=\"_blank"
 "\"><code>must-revalidate</code></a> заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:89
+#: main-admin.php:92
 msgid "Doesn't use stale cache on proxy servers"
 msgstr "Не использовать устаревшее содержимое кэша на прокси серверах"
 
-#: main-admin.php:90
+#: main-admin.php:93
 msgid ""
 "If cache content on proxy servers to become stale, a cache <strong>must not</"
 "strong> use the response to satisfy requests without successful validation "
@@ -169,11 +169,31 @@ msgstr ""
 "tools.ietf.org/html/rfc7234#section-5.2.2.7\" target=\"_blank\"><code>proxy-"
 "revalidate</code></a> заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:96
+#: main-admin.php:98
+msgid "Don't transform content parts in cache"
+msgstr "Не преобразовывать содержимое в кэше"
+
+#: main-admin.php:99
+msgid ""
+"Cache (regardless of whether it implements a cache) <strong>must not</"
+"strong> transform the payload, as defined in <a href=\"http://tools.ietf.org/"
+"html/rfc7230#section-5.7.2\" target=\"_blank\">Section 5.7.2 of RFC 7230</"
+"a>. <a href=\"http://tools.ietf.org/html/rfc7234#section-5.2.2.4\" target="
+"\"_blank\"><code>no-transform</code></a> parameter of <code>Cache-Control</"
+"code> header."
+msgstr ""
+"Запрещает кэшу (вне зависимости от того, где он реализован) преобразовывать "
+"форматы содержимого при кэшировании (<a href=\"http://tools.ietf.org/html/"
+"rfc7230#section-5.7.2\" target=\"_blank\">п. 5.7.2 RFC 7230</a>). Параметр "
+"<a href=\"http://tools.ietf.org/html/rfc7234#section-5.2.2.4\" target="
+"\"_blank\"><code>no-transform</code></a> заголовка <code>Cache-Control</"
+"code>."
+
+#: main-admin.php:105
 msgid "RFC 7234"
 msgstr "RFC 7234"
 
-#: main-admin.php:97
+#: main-admin.php:106
 msgid ""
 "<p><a href=\"http://tools.ietf.org/html/rfc7234\" target=\"_blank\">RFC "
 "7234</a> defines HTTP caches and the associated header fields that control "
