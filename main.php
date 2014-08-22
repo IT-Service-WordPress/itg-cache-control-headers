@@ -25,6 +25,7 @@ const NO_CACHE = 'cache-control-no-cache';
 const NO_STORE = 'cache-control-no-store';
 const CACHE_PUBLIC = 'cache-control-cache-public';
 const CACHE_PRIVATE = 'cache-control-cache-private';
+const MUST_REVALIDATE = 'cache-control-must-revalidate';
 
 require_once( 'itg_wordpress_plugin_cachecontrol_headersgenerator.php' );
 
