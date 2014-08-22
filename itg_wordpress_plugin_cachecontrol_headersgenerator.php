@@ -58,18 +58,16 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		$must_revalidate = (bool) \get_option( MUST_REVALIDATE, false );
 		$proxy_revalidate = (bool) \get_option( PROXY_REVALIDATE, false );
 		$no_transform = (bool) \get_option( NO_TRANSFORM, false );
+		$stale_if_error = intval( \get_option( STALE_IF_ERROR, 0 ) );
+		$stale_while_revalidate = intval( \get_option( STALE_WHILE_REVALIDATE, 0 ) );
 		
 		if ( true === $no_cache ) {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
 		} else {
 			$cache_control = new ComplexHeader(); // ( $headers[ 'Cache-Control' ] );
 			
-			if ( $no_cache ) {
-				$cache_control->params[ 'no-cache' ] = $no_cache;
-			};
-			if ( $no_store ) {
-				$cache_control->params[ 'no-store' ] = $no_store;
-			};
+			$cache_control->params[ 'no-cache' ] = $no_cache ? $no_cache : false;
+			$cache_control->params[ 'no-store' ] = $no_store ? $no_store : false;
 			if (
 				$cache_public
 				&& ! ( true === $cache_private )
@@ -83,13 +81,12 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			};
 			$cache_control->params[ 'private' ] = $cache_private;
 			$cache_control->params[ 'must-revalidate' ] = $must_revalidate;
-			if ( ! $must_revalidate ) {
-				$cache_control->params[ 'proxy-revalidate' ] = $proxy_revalidate;
-			} else {
-				$cache_control->params[ 'proxy-revalidate' ] = false;
-			};
+			$cache_control->params[ 'proxy-revalidate' ] = $must_revalidate ? false : $proxy_revalidate;
 			$cache_control->params[ 'no-transform' ] = $no_transform;
 			$cache_control->params[ 'max-age' ] = $expires;
+			$cache_control->params[ 'stale-if-error' ] = $stale_if_error ? $stale_if_error : false;
+			$cache_control->params[ 'stale-while-revalidate' ] = $stale_while_revalidate ? $stale_while_revalidate : false;
+
 			// http://tools.ietf.org/html/rfc7231#section-7.1.1.1
 			$headers[ 'Expires' ] = gmdate( 'D, d M Y H:i:s T', time() + $expires );
 

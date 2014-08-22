@@ -30,11 +30,12 @@ new WPF\Plugin\Part\Advanced (
 	, new WPF\Setting\PluginSetting( CACHE_PRIVATE, false )
 	, new WPF\Setting\PluginSetting( MAX_AGE, 3600, true,
 		new WPF\Setting\Validate\Base( 
-			__( 'Cache-Control <code>max-age</code> must be positive integer.', TEXTDOMAIN )
+			sprintf(
+				__( 'Cache-Control parameter %1$s must be positive integer.', TEXTDOMAIN )
+				, '<code>max-age</code>'
+			)
 			, false
-			, function ( $value ) {
-                return ( $value > 0 );
-            }
+			, function ( $value ) { return ( $value > 0 ); }
 			, 'intval'
 		)
 	)
@@ -47,9 +48,31 @@ new WPF\Plugin\Part\Advanced (
 	, new WPF\Setting\PluginSetting( NO_TRANSFORM, false, true,
 		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
 	)
+	, new WPF\Setting\PluginSetting( STALE_IF_ERROR, 0, true,
+		new WPF\Setting\Validate\Base( 
+			sprintf(
+				__( 'Cache-Control parameter %1$s must be positive integer.', TEXTDOMAIN )
+				, '<code>stale-if-error</code>'
+			)
+			, false
+			, function ( $value ) { return ( $value >= 0 ); }
+			, 'intval'
+		)
+	)
+	, new WPF\Setting\PluginSetting( STALE_WHILE_REVALIDATE, 0, true,
+		new WPF\Setting\Validate\Base( 
+			sprintf(
+				__( 'Cache-Control parameter %1$s must be positive integer.', TEXTDOMAIN )
+				, '<code>stale-while-revalidate</code>'
+			)
+			, false
+			, function ( $value ) { return ( $value >= 0 ); }
+			, 'intval'
+		)
+	)
 	
 	, new WPF\GUI\Setting\Page\PluginOptions(
-		new WPF\GUI\Setting\Page\Section\Base( 'main', __( 'HTTP 1.1 Cache-Control headers options', TEXTDOMAIN )
+		new WPF\GUI\Setting\Page\Section\Base( 'rfc7234', __( 'RFC 7234 HTTP 1.1 Cache-Control headers options', TEXTDOMAIN )
 			, new WPF\GUI\Setting\Page\Control\Input(
 				'no_cache'
 				, NO_CACHE
@@ -97,6 +120,20 @@ new WPF\Plugin\Part\Advanced (
 				, NO_TRANSFORM
 				, __( 'Don\'t transform content parts in cache', TEXTDOMAIN )
 				, __( 'Cache (regardless of whether it implements a cache) <strong>must not</strong> transform the payload, as defined in <a href="http://tools.ietf.org/html/rfc7230#section-5.7.2" target="_blank">Section 5.7.2 of RFC 7230</a>. <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.4" target="_blank"><code>no-transform</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
+			)
+		)
+		, new WPF\GUI\Setting\Page\Section\Base( 'rfc5861', __( 'RFC 5861 HTTP Cache-Control Extensions for Stale Content', TEXTDOMAIN )
+			, new WPF\GUI\Setting\Page\Control\Input(
+				'stale_while_revalidate'
+				, STALE_WHILE_REVALIDATE
+				, __( 'Return stale content while revalidate', TEXTDOMAIN )
+				, __( 'In seconds. A cached stale response <strong>may</strong> be used to satisfy the request, up to the indicated number of seconds, while source server request in progress. <a href="http://tools.ietf.org/html/rfc5861#section-3" target="_blank"><code>stale-while-revalidate</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
+			)
+			, new WPF\GUI\Setting\Page\Control\Input(
+				'stale_if_error'
+				, STALE_IF_ERROR
+				, __( 'Return stale content if error', TEXTDOMAIN )
+				, __( 'In seconds. When an error is encountered (in source server response), a cached stale response <strong>may</strong> be used to satisfy the request, regardless of other freshness information. <a href="http://tools.ietf.org/html/rfc5861#section-4" target="_blank"><code>stale-if-error</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
 			)
 		)
 

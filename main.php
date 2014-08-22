@@ -28,6 +28,8 @@ const CACHE_PRIVATE = 'cache-control-cache-private';
 const MUST_REVALIDATE = 'cache-control-must-revalidate';
 const PROXY_REVALIDATE = 'cache-control-proxy-revalidate';
 const NO_TRANSFORM = 'cache-control-no-transform';
+const STALE_IF_ERROR = 'cache-control-stale-if-error';
+const STALE_WHILE_REVALIDATE = 'cache-control-stale-while-revalidate';
 
 require_once( 'itg_wordpress_plugin_cachecontrol_headersgenerator.php' );
 
