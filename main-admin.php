@@ -41,6 +41,9 @@ new WPF\Plugin\Part\Advanced (
 	, new WPF\Setting\PluginSetting( MUST_REVALIDATE, false, true,
 		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
 	)
+	, new WPF\Setting\PluginSetting( PROXY_REVALIDATE, false, true,
+		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
+	)
 	
 	, new WPF\GUI\Setting\Page\PluginOptions(
 		new WPF\GUI\Setting\Page\Section\Base( 'main', __( 'HTTP 1.1 Cache-Control headers options', TEXTDOMAIN )
@@ -79,6 +82,12 @@ new WPF\Plugin\Part\Advanced (
 				, MUST_REVALIDATE
 				, __( 'Doesn\'t use stale cache', TEXTDOMAIN )
 				, __( 'If cache content to become stale, a cache <strong>must not</strong> use the response to satisfy requests without successful validation on the origin server. <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.1" target="_blank"><code>must-revalidate</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
+			)
+			, new WPF\GUI\Setting\Page\Control\CheckBox(
+				'proxy_revalidate'
+				, PROXY_REVALIDATE
+				, __( 'Doesn\'t use stale cache on proxy servers', TEXTDOMAIN )
+				, __( 'If cache content on proxy servers to become stale, a cache <strong>must not</strong> use the response to satisfy requests without successful validation on the origin server. But private (browser) cache can use stale content. <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.7" target="_blank"><code>proxy-revalidate</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
 			)
 		)
 
