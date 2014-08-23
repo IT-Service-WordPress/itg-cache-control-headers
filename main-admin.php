@@ -15,24 +15,49 @@ WPF\Loader::_require_once( 'wpf_gui_setting_page_control_input.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_control_checkbox.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_component_help_tab.php' );
 
+require_once( 'itg_wordpress_plugin_cachecontrol_functions.php' );
+
 new WPF\TextDomain\WPF( WPF\WPF_ADMINTEXTDOMAIN );
 new WPF\TextDomain\Plugin( TEXTDOMAIN, __FILE__ );
 
 new WPF\Plugin\Part\Advanced (
  
-	new WPF\Setting\PluginSetting( NO_CACHE, false )
+	new WPF\Setting\PluginSetting( NO_CACHE, false, true,
+		new WPF\Setting\Validate\Base( 
+			sprintf(
+				__( 'Invalid %2$s parameter %1$s value. Must be empty string, <code>*</code> or comma separated HTTP headers list.', TEXTDOMAIN )
+				, '<code>no-cache</code>'
+				, '<code>Cache-Control</code>'
+			)
+			, false
+			, '\ITG\WordPress\Plugin\CacheControl\is_http_headers_list'
+			, '\ITG\WordPress\Plugin\CacheControl\sanitize_http_headers_list'
+		)
+	)
 	, new WPF\Setting\PluginSetting( NO_STORE, true, true,
 		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
 	)
 	, new WPF\Setting\PluginSetting( CACHE_PUBLIC, true, true,
 		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
 	)
-	, new WPF\Setting\PluginSetting( CACHE_PRIVATE, false )
+	, new WPF\Setting\PluginSetting( CACHE_PRIVATE, false, true,
+		new WPF\Setting\Validate\Base( 
+			sprintf(
+				__( 'Invalid %2$s parameter %1$s value. Must be empty string, <code>*</code> or comma separated HTTP headers list.', TEXTDOMAIN )
+				, '<code>private</code>'
+				, '<code>Cache-Control</code>'
+			)
+			, false
+			, '\ITG\WordPress\Plugin\CacheControl\is_http_headers_list'
+			, '\ITG\WordPress\Plugin\CacheControl\sanitize_http_headers_list'
+		)
+	)
 	, new WPF\Setting\PluginSetting( MAX_AGE, 3600, true,
 		new WPF\Setting\Validate\Base( 
 			sprintf(
-				__( 'Cache-Control parameter %1$s must be positive integer.', TEXTDOMAIN )
+				__( '%2$s parameter %1$s must be positive integer.', TEXTDOMAIN )
 				, '<code>max-age</code>'
+				, '<code>Cache-Control</code>'
 			)
 			, false
 			, function ( $value ) { return ( $value > 0 ); }
@@ -51,8 +76,9 @@ new WPF\Plugin\Part\Advanced (
 	, new WPF\Setting\PluginSetting( STALE_IF_ERROR, 0, true,
 		new WPF\Setting\Validate\Base( 
 			sprintf(
-				__( 'Cache-Control parameter %1$s must be positive integer.', TEXTDOMAIN )
+				__( '%2$s parameter %1$s must be positive integer.', TEXTDOMAIN )
 				, '<code>stale-if-error</code>'
+				, '<code>Cache-Control</code>'
 			)
 			, false
 			, function ( $value ) { return ( $value >= 0 ); }
@@ -62,8 +88,9 @@ new WPF\Plugin\Part\Advanced (
 	, new WPF\Setting\PluginSetting( STALE_WHILE_REVALIDATE, 0, true,
 		new WPF\Setting\Validate\Base( 
 			sprintf(
-				__( 'Cache-Control parameter %1$s must be positive integer.', TEXTDOMAIN )
+				__( '%2$s parameter %1$s must be positive integer.', TEXTDOMAIN )
 				, '<code>stale-while-revalidate</code>'
+				, '<code>Cache-Control</code>'
 			)
 			, false
 			, function ( $value ) { return ( $value >= 0 ); }
