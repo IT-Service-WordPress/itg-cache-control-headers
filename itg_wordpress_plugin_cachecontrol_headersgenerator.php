@@ -60,6 +60,10 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		$no_transform = (bool) \get_option( NO_TRANSFORM, false );
 		$stale_if_error = intval( \get_option( STALE_IF_ERROR, 0 ) );
 		$stale_while_revalidate = intval( \get_option( STALE_WHILE_REVALIDATE, 0 ) );
+		$vary = \get_option( VARY, false );
+		if ( empty( $vary ) ) {
+			$vary = false;
+		};
 		
 		if ( true === $no_cache ) {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
@@ -89,6 +93,8 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 
 			// http://tools.ietf.org/html/rfc7231#section-7.1.1.1
 			$headers[ 'Expires' ] = gmdate( 'D, d M Y H:i:s T', time() + $expires );
+
+			$headers[ 'Vary' ] = $vary;
 
 			// $headers[ 'Vary' ] = LOGGED_IN_COOKIE;
 			
