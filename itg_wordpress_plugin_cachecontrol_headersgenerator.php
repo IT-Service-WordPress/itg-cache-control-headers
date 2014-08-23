@@ -66,8 +66,8 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		} else {
 			$cache_control = new ComplexHeader(); // ( $headers[ 'Cache-Control' ] );
 			
-			$cache_control->params[ 'no-cache' ] = $no_cache ? $no_cache : false;
-			$cache_control->params[ 'no-store' ] = $no_store ? $no_store : false;
+			$cache_control->params[ 'no-cache' ] = $no_cache ? : false;
+			$cache_control->params[ 'no-store' ] = $no_store ? : false;
 			if (
 				$cache_public
 				&& ! ( true === $cache_private )
@@ -84,8 +84,8 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			$cache_control->params[ 'proxy-revalidate' ] = $must_revalidate ? false : $proxy_revalidate;
 			$cache_control->params[ 'no-transform' ] = $no_transform;
 			$cache_control->params[ 'max-age' ] = $expires;
-			$cache_control->params[ 'stale-if-error' ] = $stale_if_error ? $stale_if_error : false;
-			$cache_control->params[ 'stale-while-revalidate' ] = $stale_while_revalidate ? $stale_while_revalidate : false;
+			$cache_control->params[ 'stale-if-error' ] = $must_revalidate ? false : ( $stale_if_error ? : false );
+			$cache_control->params[ 'stale-while-revalidate' ] = $stale_while_revalidate ? : false;
 
 			// http://tools.ietf.org/html/rfc7231#section-7.1.1.1
 			$headers[ 'Expires' ] = gmdate( 'D, d M Y H:i:s T', time() + $expires );
