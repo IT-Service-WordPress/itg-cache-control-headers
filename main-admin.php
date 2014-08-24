@@ -12,6 +12,7 @@ WPF\Loader::_require_once( 'wpf_setting_validator_base.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_pluginoptions.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_section_base.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_control_input.php' );
+WPF\Loader::_require_once( 'wpf_gui_setting_page_control_number.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_control_checkbox.php' );
 WPF\Loader::_require_once( 'wpf_gui_setting_page_component_help_tab.php' );
 
@@ -135,11 +136,12 @@ new WPF\Plugin\Part\Advanced (
 				, __( 'Disable public cache for headers', TEXTDOMAIN )
 				, __( 'Disable public cache for specified HTTP headers, but don\'t disable public cache for other parts of response. <code>*</code> - fully disable public (proxy servers) cache, <code>""</code> - don\'t disable public cache. <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.6" target="_blank"><code>private</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
 			)
-			, new WPF\GUI\Setting\Page\Control\Input(
+			, new WPF\GUI\Setting\Page\Control\Number(
 				'max_age'
 				, MAX_AGE
 				, __( 'Default <code>max-age</code> value', TEXTDOMAIN )
 				, __( 'Default <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.8" target="_blank"><code>max-age</code></a> value (max cache time-to-live, seconds) for html wordpress pages.', TEXTDOMAIN )
+				, __( 'seconds', TEXTDOMAIN )
 			)
 			, new WPF\GUI\Setting\Page\Control\CheckBox(
 				'must_revalidate'
@@ -167,17 +169,19 @@ new WPF\Plugin\Part\Advanced (
 			)
 		)
 		, new WPF\GUI\Setting\Page\Section\Base( 'rfc5861', __( 'RFC 5861 HTTP Cache-Control Extensions for Stale Content', TEXTDOMAIN )
-			, new WPF\GUI\Setting\Page\Control\Input(
+			, new WPF\GUI\Setting\Page\Control\Number(
 				'stale_while_revalidate'
 				, STALE_WHILE_REVALIDATE
 				, __( 'Return stale content while revalidate', TEXTDOMAIN )
 				, __( 'In seconds. A cached stale response <strong>may</strong> be used to satisfy the request, up to the indicated number of seconds, while source server request in progress. <a href="http://tools.ietf.org/html/rfc5861#section-3" target="_blank"><code>stale-while-revalidate</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
+				, __( 'seconds', TEXTDOMAIN )
 			)
-			, new WPF\GUI\Setting\Page\Control\Input(
+			, new WPF\GUI\Setting\Page\Control\Number(
 				'stale_if_error'
 				, STALE_IF_ERROR
 				, __( 'Return stale content if error', TEXTDOMAIN )
 				, __( 'In seconds. When an error is encountered (in source server response), a cached stale response <strong>may</strong> be used to satisfy the request, regardless of other freshness information. <a href="http://tools.ietf.org/html/rfc5861#section-4" target="_blank"><code>stale-if-error</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
+				, __( 'seconds', TEXTDOMAIN )
 			)
 		)
 
