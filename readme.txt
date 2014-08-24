@@ -22,7 +22,7 @@ For more information, please visit the [github repository](https://github.com/IT
 
 == Upgrade Notice ==
 
-= 0.1.0 =
+= 1.0.0 =
 * Initial Release
 
 == Installation ==
@@ -69,7 +69,4 @@ Please, read [installation manual](https://github.com/IT-Service-WordPress/wpf-v
 
 The next version or later:
 
-* optional http cache-control **max-age** header value and **must-revalidate**
-* just private cache headers, when post has limited access
-* cache-control and Last-Modification headers - to separate plugins
 * **if-modified** http request support (separate plugins)
