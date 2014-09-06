@@ -23,7 +23,7 @@ const TEXTDOMAIN = 'itg-cache-control-headers';
 
 const VARY = 'cache-control-vary';
 
-const DONT_REWRITE = 'cache-control-dont-rewrite';
+const CACHE_CONTROL_REWRITE_MODE = 'cache-control-rewrite-mode';
 const MAX_AGE = 'cache-control-max-age-default';
 const NO_CACHE = 'cache-control-no-cache';
 const NO_STORE = 'cache-control-no-store';
