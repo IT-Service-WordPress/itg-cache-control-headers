@@ -109,9 +109,16 @@ new WPF\Plugin\Part\Advanced (
 			, '\ITG\WordPress\Plugin\CacheControl\sanitize_http_headers_list'
 		)
 	)
+	, new WPF\Setting\PluginSetting( DONT_REWRITE, false, true,
+		new WPF\Setting\Validate\Base( null, null, null, \FILTER_VALIDATE_BOOLEAN )
+	)
 	
 	, new WPF\GUI\Setting\Page\PluginOptions(
 		new WPF\GUI\Setting\Page\Section\Base( 'rfc7234', __( 'RFC 7234 HTTP 1.1 Cache-Control headers options', TEXTDOMAIN )
+			, new WPF\GUI\Setting\Page\Control\CheckBox( 'dont_rewrite_cache_control', DONT_REWRITE, array(
+				'title' => __( 'Don\'t overwrite <code>Cache-Control</code> header', TEXTDOMAIN )
+				, 'description' => __( 'Don\'t overwrite <code>Cache-Control</code> header, if it exists.', TEXTDOMAIN )
+			) )
 			, new WPF\GUI\Setting\Page\Control\Input( 'no_cache', NO_CACHE, array(
 				'title' => __( 'Disable cache for headers', TEXTDOMAIN )
 				, 'description' => __( 'Disable cache for specified HTTP headers, but enable cache for other parts of response. <code>*</code> - fully disable server, client (browser) and proxy servers cache, <code>""</code> - don\'t disable cache. <a href="http://tools.ietf.org/html/rfc7234#section-5.2.2.2" target="_blank"><code>no-cache</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )

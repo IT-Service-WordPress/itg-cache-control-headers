@@ -40,6 +40,7 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		$headers
 		, $wp
 	) {
+		$dont_rewrite_cache_control = (bool) \get_option( DONT_REWRITE, false );
 		$expires = intval( \get_option( MAX_AGE, 3600 ) );
 		$no_cache = \get_option( NO_CACHE, false );
 		if ( empty( $no_cache ) ) {
@@ -67,7 +68,10 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		
 		if ( true === $no_cache ) {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
-		} else {
+		} elseif (
+			! $dont_rewrite_cache_control
+			or ( ! isset( $headers[ 'Cache-Control' ] ) )
+		) {
 			$cache_control = new ComplexHeader(); // ( $headers[ 'Cache-Control' ] );
 			
 			$cache_control->params[ 'no-cache' ] = $no_cache ? : false;
