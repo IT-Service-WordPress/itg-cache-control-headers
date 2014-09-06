@@ -120,7 +120,7 @@ new WPF\Plugin\Part\Advanced (
 				, 'choices'  => array(
 					'off'  => __( 'Don\'t modify or add', TEXTDOMAIN )
 					, 'dont_overwrite'  => __( 'Don\'t overwrite', TEXTDOMAIN )
-					, 'rewrite'  => __( 'Rewrite', TEXTDOMAIN )
+					, ''  => __( 'Rewrite', TEXTDOMAIN ) // default
 					, 'append'  => __( 'Append', TEXTDOMAIN )
 				)
 			) )
