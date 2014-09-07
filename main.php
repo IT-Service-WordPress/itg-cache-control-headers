@@ -28,6 +28,7 @@ new WPF\Plugin\Base (
 	, new HeadersGenerator()
 
 	, new WPF\Plugin\Part\Load\Admin()
+	, new WPF\Plugin\Part\Load\Admin( 'posts-specific-admin.php' )
 );
 
 ?>

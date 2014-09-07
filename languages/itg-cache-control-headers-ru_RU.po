@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: itg-cache-control-headers\n"
-"POT-Creation-Date: 2014-09-07 13:41+0400\n"
-"PO-Revision-Date: 2014-09-07 13:45+0400\n"
+"POT-Creation-Date: 2014-09-07 15:58+0400\n"
+"PO-Revision-Date: 2014-09-07 15:58+0400\n"
 "Last-Translator: Sergey S. Betke <sergey.s.betke@yandex.ru>\n"
 "Language-Team:  <sergey.s.betke@yandex.ru>\n"
 "Language: ru_RU\n"
@@ -38,21 +38,7 @@ msgstr ""
 msgid "Sergey S. Betke"
 msgstr "Бетке Сергей Сергеевич"
 
-#: _header-strings.php:5
-msgid "ITG Cache-Control headers - pages specific"
-msgstr "ITG Cache-Control - параметры страниц"
-
-#: _header-strings.php:6
-msgid ""
-"Add to \"ITG Cache-Control headers\" plugin posts and pages meta for posts "
-"specific cache parameters."
-msgstr ""
-"Расширяет возможности плагина \"ITG Cache-Control\", добавляя возможность "
-"указать отличные от общих параметры кэширования для отдельных страниц и "
-"статей."
-
-#: main-admin.php:30 main-admin.php:48 posts-specific-admin.php:30
-#: posts-specific-admin.php:48
+#: main-admin.php:30 main-admin.php:48
 #, php-format
 msgid ""
 "Invalid %2$s parameter %1$s value. Must be empty string, <code>*</code> or "
@@ -62,15 +48,13 @@ msgstr ""
 "строка, <code>*</code> или разделённый запятыми список заголовков HTTP."
 
 #: main-admin.php:60 main-admin.php:81 main-admin.php:93
-#: posts-specific-admin.php:60 posts-specific-admin.php:81
-#: posts-specific-admin.php:93
 #, php-format
 msgid "%2$s parameter %1$s must be positive integer."
 msgstr ""
 "Значение параметра %1$s заголовка %2$s должно быть целым положительным "
 "числом."
 
-#: main-admin.php:105 posts-specific-admin.php:105
+#: main-admin.php:105
 #, php-format
 msgid ""
 "Invalid HTTP header %1$s value. Must be empty string, <code>*</code> or "
@@ -79,39 +63,39 @@ msgstr ""
 "Неверное значение заголовка %1$s. Допустимые значения: пустая строка, "
 "<code>*</code> или разделённый запятыми список заголовков HTTP."
 
-#: main-admin.php:116 posts-specific-admin.php:116
+#: main-admin.php:116
 msgid "RFC 7234 HTTP 1.1 Cache-Control headers options"
 msgstr "RFC 7234 Параметры Cache-Control"
 
-#: main-admin.php:118 posts-specific-admin.php:118
+#: main-admin.php:118
 msgid "<code>Cache-Control</code> rewrite mode"
 msgstr "Перезапись заголовков"
 
-#: main-admin.php:119 posts-specific-admin.php:119
+#: main-admin.php:119
 msgid "<code>Cache-Control</code> header overwrite mode."
 msgstr "Режим перезаписи заголовка <code>Cache-Control</code>"
 
-#: main-admin.php:121 posts-specific-admin.php:121
+#: main-admin.php:121
 msgid "Don't modify or add"
 msgstr "Не добавлять и не модифицировать"
 
-#: main-admin.php:122 posts-specific-admin.php:122
+#: main-admin.php:122
 msgid "Don't overwrite"
 msgstr "Не переопределять (если уже присутствует)"
 
-#: main-admin.php:123 posts-specific-admin.php:123
+#: main-admin.php:123
 msgid "Rewrite"
 msgstr "Всегда переписывать"
 
-#: main-admin.php:124 posts-specific-admin.php:124
+#: main-admin.php:124
 msgid "Append"
 msgstr "Дописывать"
 
-#: main-admin.php:128 posts-specific-admin.php:128
+#: main-admin.php:128
 msgid "Disable cache for headers"
 msgstr "Запретить кэширование для заголовков"
 
-#: main-admin.php:129 posts-specific-admin.php:129
+#: main-admin.php:129
 msgid ""
 "Disable cache for specified HTTP headers, but enable cache for other parts "
 "of response. <code>*</code> - fully disable server, client (browser) and "
@@ -126,11 +110,11 @@ msgstr ""
 "rfc7234#section-5.2.2.2\" target=\"_blank\"><code>no-cache</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:132 posts-specific-admin.php:132
+#: main-admin.php:132
 msgid "Disable permanent cache storage"
 msgstr "Запретить долговременное кэширование"
 
-#: main-admin.php:133 posts-specific-admin.php:133
+#: main-admin.php:133
 msgid ""
 "Disable permanent cache storage (for security reasons) - <a href=\"http://"
 "tools.ietf.org/html/rfc7234#section-5.2.2.3\" target=\"_blank\"><code>no-"
@@ -141,11 +125,11 @@ msgstr ""
 "rfc7234#section-5.2.2.3\" target=\"_blank\"><code>no-store</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:136 posts-specific-admin.php:136
+#: main-admin.php:136
 msgid "Enable public cache"
 msgstr "Разрешить общий кэш"
 
-#: main-admin.php:137 posts-specific-admin.php:137
+#: main-admin.php:137
 msgid ""
 "Enable public cache (client (browser) and proxy servers cache) - <a href="
 "\"http://tools.ietf.org/html/rfc7234#section-5.2.2.5\" target=\"_blank"
@@ -156,11 +140,11 @@ msgstr ""
 "rfc7234#section-5.2.2.5\" target=\"_blank\"><code>public</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:140 posts-specific-admin.php:140
+#: main-admin.php:140
 msgid "Disable public cache for headers"
 msgstr "Запретить общее кэширование для заголовков"
 
-#: main-admin.php:141 posts-specific-admin.php:141
+#: main-admin.php:141
 msgid ""
 "Disable public cache for specified HTTP headers, but don't disable public "
 "cache for other parts of response. <code>*</code> - fully disable public "
@@ -175,17 +159,15 @@ msgstr ""
 "rfc7234#section-5.2.2.6\" target=\"_blank\"><code>private</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:144 posts-specific-admin.php:144
+#: main-admin.php:144
 msgid "Default <code>max-age</code> value"
 msgstr "<code>max-age</code> (по умолчанию)"
 
 #: main-admin.php:145 main-admin.php:168 main-admin.php:173
-#: posts-specific-admin.php:145 posts-specific-admin.php:168
-#: posts-specific-admin.php:173
 msgid "seconds"
 msgstr "секунд"
 
-#: main-admin.php:146 posts-specific-admin.php:146
+#: main-admin.php:146
 msgid ""
 "Default <a href=\"http://tools.ietf.org/html/rfc7234#section-5.2.2.8\" "
 "target=\"_blank\"><code>max-age</code></a> value (max cache time-to-live, "
@@ -196,11 +178,11 @@ msgstr ""
 "(максимальное время жизни в кэше, в секундах) для генерируемых wordpress "
 "страниц."
 
-#: main-admin.php:149 posts-specific-admin.php:149
+#: main-admin.php:149
 msgid "Doesn't use stale cache"
 msgstr "Не использовать устаревшее содержимое кэша"
 
-#: main-admin.php:150 posts-specific-admin.php:150
+#: main-admin.php:150
 msgid ""
 "If cache content to become stale, a cache <strong>must not</strong> use the "
 "response to satisfy requests without successful validation on the origin "
@@ -215,11 +197,11 @@ msgstr ""
 "href=\"http://tools.ietf.org/html/rfc7234#section-5.2.2.1\" target=\"_blank"
 "\"><code>must-revalidate</code></a> заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:153 posts-specific-admin.php:153
+#: main-admin.php:153
 msgid "Doesn't use stale cache on proxy servers"
 msgstr "Не использовать устаревшее содержимое кэша на прокси серверах"
 
-#: main-admin.php:154 posts-specific-admin.php:154
+#: main-admin.php:154
 msgid ""
 "If cache content on proxy servers to become stale, a cache <strong>must not</"
 "strong> use the response to satisfy requests without successful validation "
@@ -236,11 +218,11 @@ msgstr ""
 "tools.ietf.org/html/rfc7234#section-5.2.2.7\" target=\"_blank\"><code>proxy-"
 "revalidate</code></a> заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:157 posts-specific-admin.php:157
+#: main-admin.php:157
 msgid "Don't transform content parts in cache"
 msgstr "Не преобразовывать содержимое в кэше"
 
-#: main-admin.php:158 posts-specific-admin.php:158
+#: main-admin.php:158
 msgid ""
 "Cache (regardless of whether it implements a cache) <strong>must not</"
 "strong> transform the payload, as defined in <a href=\"http://tools.ietf.org/"
@@ -256,11 +238,11 @@ msgstr ""
 "\"_blank\"><code>no-transform</code></a> заголовка <code>Cache-Control</"
 "code>."
 
-#: main-admin.php:161 posts-specific-admin.php:161
+#: main-admin.php:161
 msgid "Second cache keys"
 msgstr "Вторичные ключи для кэша"
 
-#: main-admin.php:162 posts-specific-admin.php:162
+#: main-admin.php:162
 msgid ""
 "List of request headers, for different values of which responses may be "
 "different. <a href=\"http://tools.ietf.org/html/rfc7234#section-4.1\" target="
@@ -270,15 +252,15 @@ msgstr ""
 "могут быть различными. Заголовок <a href=\"http://tools.ietf.org/html/"
 "rfc7234#section-4.1\" target=\"_blank\"><code>Vary</code></a>."
 
-#: main-admin.php:165 posts-specific-admin.php:165
+#: main-admin.php:165
 msgid "RFC 5861 HTTP Cache-Control Extensions for Stale Content"
 msgstr "RFC 5861 Расширения Cache-Control для устаревшего контента"
 
-#: main-admin.php:167 posts-specific-admin.php:167
+#: main-admin.php:167
 msgid "Return stale content while revalidate"
 msgstr "Возвращать устаревшее содержимое в процессе обновления"
 
-#: main-admin.php:169 posts-specific-admin.php:169
+#: main-admin.php:169
 msgid ""
 "In seconds. A cached stale response <strong>may</strong> be used to satisfy "
 "the request, up to the indicated number of seconds, while source server "
@@ -292,11 +274,11 @@ msgstr ""
 "rfc5861#section-3\" target=\"_blank\"><code>stale-while-revalidate</code></"
 "a> заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:172 posts-specific-admin.php:172
+#: main-admin.php:172
 msgid "Return stale content if error"
 msgstr "Возвращать устаревшее содержимое при ошибке исходного сервера"
 
-#: main-admin.php:174 posts-specific-admin.php:174
+#: main-admin.php:174
 msgid ""
 "In seconds. When an error is encountered (in source server response), a "
 "cached stale response <strong>may</strong> be used to satisfy the request, "
@@ -310,11 +292,11 @@ msgstr ""
 "rfc5861#section-4\" target=\"_blank\"><code>stale-if-error</code></a> "
 "заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:180 posts-specific-admin.php:180
+#: main-admin.php:180
 msgid "RFC 7234"
 msgstr "RFC 7234"
 
-#: main-admin.php:181 posts-specific-admin.php:181
+#: main-admin.php:181
 msgid ""
 "<p><a href=\"http://tools.ietf.org/html/rfc7234\" target=\"_blank\">RFC "
 "7234</a> defines HTTP caches and the associated header fields that control "
@@ -329,11 +311,11 @@ msgstr ""
 "html/rfc7234\" target=\"_blank\">прочитайте указанный документ</a> перед "
 "использованием данного плагина.</p>"
 
-#: main-admin.php:186 posts-specific-admin.php:186
+#: main-admin.php:186
 msgid "RFC 5861"
 msgstr "RFC 5861"
 
-#: main-admin.php:187 posts-specific-admin.php:187
+#: main-admin.php:187
 msgid ""
 "<p><a href=\"http://tools.ietf.org/html/rfc5861\" target=\"_blank\">RFC "
 "5861</a> defines two independent HTTP Cache-Control extensions that allow "
@@ -342,6 +324,17 @@ msgstr ""
 "<p><a href=\"http://tools.ietf.org/html/rfc5861\" target=\"_blank\">RFC "
 "5861</a> определяет два независимых расширения <code>Cache-Control</code>, "
 "которые позволяют управлять использованием устаревшего содержимого кэша.</p>"
+
+#~ msgid "ITG Cache-Control headers - pages specific"
+#~ msgstr "ITG Cache-Control - параметры страниц"
+
+#~ msgid ""
+#~ "Add to \"ITG Cache-Control headers\" plugin posts and pages meta for "
+#~ "posts specific cache parameters."
+#~ msgstr ""
+#~ "Расширяет возможности плагина \"ITG Cache-Control\", добавляя возможность "
+#~ "указать отличные от общих параметры кэширования для отдельных страниц и "
+#~ "статей."
 
 #, fuzzy
 #~ msgid ""
