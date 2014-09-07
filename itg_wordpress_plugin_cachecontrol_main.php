@@ -19,22 +19,7 @@ require_once( 'wpf' . DIRECTORY_SEPARATOR . 'wpf_inc.php' );
 WPF\Loader::_require_once( 'wpf_plugin_base.php' );
 WPF\Loader::_require_once( 'wpf_plugin_part_load_admin.php' );
 
-const TEXTDOMAIN = 'itg-cache-control-headers';
-
-const VARY = 'cache-control-vary';
-
-const CACHE_CONTROL_REWRITE_MODE = 'cache-control-rewrite-mode';
-const MAX_AGE = 'cache-control-max-age-default';
-const NO_CACHE = 'cache-control-no-cache';
-const NO_STORE = 'cache-control-no-store';
-const CACHE_PUBLIC = 'cache-control-cache-public';
-const CACHE_PRIVATE = 'cache-control-cache-private';
-const MUST_REVALIDATE = 'cache-control-must-revalidate';
-const PROXY_REVALIDATE = 'cache-control-proxy-revalidate';
-const NO_TRANSFORM = 'cache-control-no-transform';
-const STALE_IF_ERROR = 'cache-control-stale-if-error';
-const STALE_WHILE_REVALIDATE = 'cache-control-stale-while-revalidate';
-
+require_once( 'itg_wordpress_plugin_cachecontrol_inc.php' );
 require_once( 'itg_wordpress_plugin_cachecontrol_headersgenerator.php' );
 
 new WPF\Plugin\Base (
