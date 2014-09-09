@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace ITG\WordPress\Plugin\CacheControl;
 
@@ -40,32 +40,33 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		$headers
 		, $wp
 	) {
-		$cache_control_rewrite_mode = \get_option( CACHE_CONTROL_REWRITE_MODE, 'rewrite' );
-		$expires = intval( \get_option( MAX_AGE, 3600 ) );
-		$no_cache = \get_option( NO_CACHE, false );
+		$settings = $this->plugin->get_settings();
+		$cache_control_rewrite_mode = $settings->__get( CACHE_CONTROL_REWRITE_MODE );
+		$expires = $settings->__get( MAX_AGE );
+		$no_cache = $settings->__get( NO_CACHE );
 		if ( empty( $no_cache ) ) {
 			$no_cache = false;
 		} elseif ( '*' == $no_cache ) {
 			$no_cache = true;
 		};
-		$no_store = (bool) \get_option( NO_STORE, false );
-		$cache_public = (bool) \get_option( CACHE_PUBLIC, false );
-		$cache_private = \get_option( CACHE_PRIVATE, false );
+		$no_store = $settings->__get( NO_STORE );
+		$cache_public = $settings->__get( CACHE_PUBLIC );
+		$cache_private = $settings->__get( CACHE_PRIVATE );
 		if ( empty( $cache_private ) ) {
 			$cache_private = false;
 		} elseif ( '*' == $cache_private ) {
 			$cache_private = true;
 		};
-		$must_revalidate = (bool) \get_option( MUST_REVALIDATE, false );
-		$proxy_revalidate = (bool) \get_option( PROXY_REVALIDATE, false );
-		$no_transform = (bool) \get_option( NO_TRANSFORM, false );
-		$stale_if_error = intval( \get_option( STALE_IF_ERROR, 0 ) );
-		$stale_while_revalidate = intval( \get_option( STALE_WHILE_REVALIDATE, 0 ) );
-		$vary = \get_option( VARY, false );
+		$must_revalidate = $settings->__get( MUST_REVALIDATE );
+		$proxy_revalidate = $settings->__get( PROXY_REVALIDATE );
+		$no_transform = $settings->__get( NO_TRANSFORM );
+		$stale_if_error = $settings->__get( STALE_IF_ERROR );
+		$stale_while_revalidate = $settings->__get( STALE_WHILE_REVALIDATE );
+		$vary = $settings->__get( VARY );
 		if ( empty( $vary ) ) {
 			$vary = false;
 		};
-		
+
 		if ( true === $no_cache ) {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
 		} elseif (
@@ -77,7 +78,7 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			} else {
 				$cache_control = new ComplexHeader();
 			};
-			
+
 			$cache_control->params[ 'no-cache' ] = $no_cache ? : false;
 			$cache_control->params[ 'no-store' ] = $no_store ? : false;
 			if (
@@ -105,10 +106,10 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 			$headers[ 'Vary' ] = $vary;
 
 			// $headers[ 'Vary' ] = LOGGED_IN_COOKIE;
-			
+
 			$headers[ 'Cache-Control' ] = $cache_control->get_value();
 		};
-		
+
 		return $headers;
 	}
 
