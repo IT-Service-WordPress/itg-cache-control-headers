@@ -110,18 +110,40 @@ new WPF\Plugin\Part\Advanced (
 			, '\ITG\WordPress\Plugin\CacheControl\sanitize_http_headers_list'
 		)
 	)
-	, new WPF\Setting\PluginSetting( CACHE_CONTROL_REWRITE_MODE, 'rewrite', true )
+	, new WPF\Setting\PluginSetting( CACHE_CONTROL_REWRITE_MODE, 'rewrite', true,
+		new WPF\Setting\Validate\Base(
+			__( 'Unexpected option <code>%4$s</code> value (<code>%2$s</code>).', TEXTDOMAIN )
+			, false
+			, function ( $value ) {
+				return in_array( $value, array( 'off', 'dont_overwrite', 'rewrite', 'append' ) );
+			}
+			, function ( $value ) {
+				switch( $value ) {
+					case 'off':
+						return 'off';
+					case 'dont_overwrite':
+						return 'dont_overwrite';
+					case '':
+					case 'rewrite':
+						return 'rewrite';
+					case 'append':
+						return 'append';
+				};
+			}
+			, CACHE_CONTROL_REWRITE_MODE
+		)
+	)
 	
 	, new WPF\GUI\Setting\Page\PluginOptions(
 		new WPF\GUI\Setting\Page\Section\Base( 'rfc7234', __( 'RFC 7234 HTTP 1.1 Cache-Control headers options', TEXTDOMAIN )
 			, new WPF\GUI\Setting\Page\Control\RadioButtons( 'dont_rewrite_cache_control', CACHE_CONTROL_REWRITE_MODE, array(
 				'title' => __( '<code>Cache-Control</code> rewrite mode', TEXTDOMAIN )
 				, 'description' => __( '<code>Cache-Control</code> header overwrite mode.', TEXTDOMAIN )
-				, 'choices'  => array(
-					'off'  => __( 'Don\'t modify or add', TEXTDOMAIN )
-					, 'dont_overwrite'  => __( 'Don\'t overwrite', TEXTDOMAIN )
-					, ''  => __( 'Rewrite', TEXTDOMAIN ) // default
-					, 'append'  => __( 'Append', TEXTDOMAIN )
+				, 'choices' => array(
+					'off' => __( 'Don\'t modify or add', TEXTDOMAIN )
+					, 'dont_overwrite' => __( 'Don\'t overwrite', TEXTDOMAIN )
+					, 'rewrite' => __( 'Rewrite', TEXTDOMAIN )
+					, 'append' => __( 'Append', TEXTDOMAIN )
 				)
 			) )
 			, new WPF\GUI\Setting\Page\Control\Input( 'no_cache', NO_CACHE, array(
