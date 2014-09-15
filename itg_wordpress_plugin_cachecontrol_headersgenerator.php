@@ -40,7 +40,7 @@ class HeadersGenerator extends WPF\Plugin\Component\Base {
 		$headers
 		, $wp
 	) {
-		$settings = $this->plugin->get_settings();
+		$settings = $this->plugin->get_options();
 		$cache_control_rewrite_mode = $settings->__get( CACHE_CONTROL_REWRITE_MODE );
 		$expires = $settings->__get( MAX_AGE );
 		$no_cache = $settings->__get( NO_CACHE );
