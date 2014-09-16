@@ -196,12 +196,16 @@ new WPF\Plugin\Part\Advanced (
 		)
 
 		, new WPF\GUI\Help\PluginData()
-		, new WPF\GUI\Help\Tab( 'rfc7234', __( 'RFC 7234', TEXTDOMAIN )
-			, __( '<p><a href="http://tools.ietf.org/html/rfc7234" target="_blank">RFC 7234</a> defines HTTP caches and the associated header fields that control cache behavior or indicate cacheable response messages.</p><p>Please, <a href="http://tools.ietf.org/html/rfc7234" target="_blank">read this document</a> before using this plugin.</p>', TEXTDOMAIN )
-		)
-		, new WPF\GUI\Help\Tab( 'rfc5861', __( 'RFC 5861', TEXTDOMAIN )
-			, __( '<p><a href="http://tools.ietf.org/html/rfc5861" target="_blank">RFC 5861</a> defines two independent HTTP Cache-Control extensions that allow control over the use of stale responses by caches.</p>', TEXTDOMAIN )
-		)
+		, new WPF\GUI\Help\Tab( array(
+			'id' => 'rfc7234'
+			, 'title' => __( 'RFC 7234', TEXTDOMAIN )
+			, 'content' => __( '<p><a href="http://tools.ietf.org/html/rfc7234" target="_blank">RFC 7234</a> defines HTTP caches and the associated header fields that control cache behavior or indicate cacheable response messages.</p><p>Please, <a href="http://tools.ietf.org/html/rfc7234" target="_blank">read this document</a> before using this plugin.</p>', TEXTDOMAIN )
+		) )
+		, new WPF\GUI\Help\Tab( array(
+			'id' => 'rfc5861'
+			, 'title' => __( 'RFC 5861', TEXTDOMAIN )
+			, 'content' => __( '<p><a href="http://tools.ietf.org/html/rfc5861" target="_blank">RFC 5861</a> defines two independent HTTP Cache-Control extensions that allow control over the use of stale responses by caches.</p>', TEXTDOMAIN )
+		) )
 	)
 );
 
