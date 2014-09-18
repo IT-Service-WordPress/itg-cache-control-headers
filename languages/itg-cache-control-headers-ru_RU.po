@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: itg-cache-control-headers\n"
-"POT-Creation-Date: 2014-09-17 01:28+0400\n"
-"PO-Revision-Date: 2014-09-17 01:31+0400\n"
+"POT-Creation-Date: 2014-09-17 13:03+0400\n"
+"PO-Revision-Date: 2014-09-17 13:04+0400\n"
 "Last-Translator: Sergey S. Betke <sergey.s.betke@yandex.ru>\n"
 "Language-Team:  <sergey.s.betke@yandex.ru>\n"
 "Language: ru_RU\n"
@@ -155,6 +155,7 @@ msgid "Default <code>max-age</code> value"
 msgstr "<code>max-age</code> (по умолчанию)"
 
 #: main-admin.php:110 main-admin.php:165 main-admin.php:182
+#: posts-specific-admin.php:30
 msgid "seconds"
 msgstr "секунд"
 
@@ -170,6 +171,7 @@ msgstr ""
 "страниц."
 
 #: main-admin.php:115 main-admin.php:170 main-admin.php:187
+#: posts-specific-admin.php:35
 #, php-format
 msgid "%2$s parameter %1$s must be positive integer."
 msgstr ""
@@ -269,31 +271,31 @@ msgstr "Возвращать устаревшее содержимое в про
 
 #: main-admin.php:166
 msgid ""
-"In seconds. A cached stale response <strong>may</strong> be used to satisfy "
-"the request, up to the indicated number of seconds, while source server "
-"request in progress. <a href=\"http://tools.ietf.org/html/"
-"rfc5861#section-3\" target=\"_blank\"><code>stale-while-revalidate</code></"
-"a> parameter of <code>Cache-Control</code> header."
+"A cached stale response <strong>may</strong> be used to satisfy the request, "
+"up to the indicated number of seconds, while source server request in "
+"progress. <a href=\"http://tools.ietf.org/html/rfc5861#section-3\" target="
+"\"_blank\"><code>stale-while-revalidate</code></a> parameter of <code>Cache-"
+"Control</code> header."
 msgstr ""
-"(секунд). Разрешает кэшу отдавать устаревшее содержимое в течение указанного "
+"Разрешает кэшу отдавать устаревшее содержимое в течение указанного "
 "количества секунд, пока запрос на обновление к исходному серверу "
 "выполняется. Параметр <a href=\"http://tools.ietf.org/html/"
 "rfc5861#section-3\" target=\"_blank\"><code>stale-while-revalidate</code></"
 "a> заголовка <code>Cache-Control</code>."
 
-#: main-admin.php:181
+#: main-admin.php:181 posts-specific-admin.php:29
 msgid "Return stale content if error"
 msgstr "Возвращать устаревшее содержимое при ошибке исходного сервера"
 
-#: main-admin.php:183
+#: main-admin.php:183 posts-specific-admin.php:31
 msgid ""
-"In seconds. When an error is encountered (in source server response), a "
-"cached stale response <strong>may</strong> be used to satisfy the request, "
-"regardless of other freshness information. <a href=\"http://tools.ietf.org/"
-"html/rfc5861#section-4\" target=\"_blank\"><code>stale-if-error</code></a> "
+"When an error is encountered (in source server response), a cached stale "
+"response <strong>may</strong> be used to satisfy the request, regardless of "
+"other freshness information. <a href=\"http://tools.ietf.org/html/"
+"rfc5861#section-4\" target=\"_blank\"><code>stale-if-error</code></a> "
 "parameter of <code>Cache-Control</code> header."
 msgstr ""
-"(секунд). Разрешает кэшу отдавать устаревшее содержимое в течение указанного "
+"Разрешает кэшу отдавать устаревшее содержимое в течение указанного "
 "количества секунд в случае ошибки исходного сервера при обновлении "
 "содержимого. Параметр <a href=\"http://tools.ietf.org/html/"
 "rfc5861#section-4\" target=\"_blank\"><code>stale-if-error</code></a> "
@@ -332,11 +334,11 @@ msgstr ""
 "5861</a> определяет два независимых расширения <code>Cache-Control</code>, "
 "которые позволяют управлять использованием устаревшего содержимого кэша.</p>"
 
-#: posts-specific-admin.php:15 posts-specific-admin.php:23
+#: posts-specific-admin.php:21 posts-specific-admin.php:47
 msgid "Cache parameters"
 msgstr "Параметры кэширования"
 
-#: posts-specific-admin.php:24
+#: posts-specific-admin.php:48
 msgid ""
 "<p>You can specify HTTP Cache-Control parameters for each page, or use "
 "common parameters for site. See meta box \"Cache parameters\".</p><p>Please "

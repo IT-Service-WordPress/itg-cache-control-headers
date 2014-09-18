@@ -19,6 +19,7 @@ require_once( 'wpf' . DIRECTORY_SEPARATOR . 'wpf_inc.php' );
 WPF\Loader::_require_once( 'wpf_plugin_base.php' );
 WPF\Loader::_require_once( 'wpf_plugin_part_load_admin.php' );
 WPF\Loader::_require_once( 'wpf_data_option_base.php' );
+WPF\Loader::_require_once( 'wpf_data_meta_post_base.php' );
 WPF\Loader::_require_once( 'wpf_gui_notice_scheduled.php' );
 
 require_once( 'itg_wordpress_plugin_cachecontrol_inc.php' );
@@ -40,9 +41,9 @@ new WPF\Plugin\Base (
 	, new WPF\Data\Option\Base( VARY, array( 'default_value' => '', 'autoload' => true, 'serialize' => true ) )
 	, new WPF\Data\Option\Base( CACHE_CONTROL_REWRITE_MODE, array( 'default_value' => 'rewrite', 'autoload' => true, 'serialize' => true ) )
 
-	/*
-	, new WPF\Meta\Post\Base( NO_CACHE, false )
-	*/
+//	, new WPF\Data\Meta\Post\Base( NO_CACHE, array( 'default_value' => false, 'serialize' => true ) )
+	, new WPF\Data\Meta\Post\Base( CACHE_CONTROL_REWRITE_MODE, array( 'default_value' => 'rewrite', 'serialize' => false ) )
+
 	, new HeadersGenerator()
 
 	, new WPF\Plugin\Part\Load\Admin()

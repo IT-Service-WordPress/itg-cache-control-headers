@@ -163,7 +163,7 @@ new WPF\Plugin\Part\Advanced (
 				, array(
 					'title' => __( 'Return stale content while revalidate', TEXTDOMAIN )
 					, 'postfix' => __( 'seconds', TEXTDOMAIN )
-					, 'description' => __( 'In seconds. A cached stale response <strong>may</strong> be used to satisfy the request, up to the indicated number of seconds, while source server request in progress. <a href="http://tools.ietf.org/html/rfc5861#section-3" target="_blank"><code>stale-while-revalidate</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
+					, 'description' => __( 'A cached stale response <strong>may</strong> be used to satisfy the request, up to the indicated number of seconds, while source server request in progress. <a href="http://tools.ietf.org/html/rfc5861#section-3" target="_blank"><code>stale-while-revalidate</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
 				)
 				, new WPF\GUI\Validator\Base(
 					sprintf(
@@ -180,7 +180,7 @@ new WPF\Plugin\Part\Advanced (
 				, array(
 					'title' => __( 'Return stale content if error', TEXTDOMAIN )
 					, 'postfix' => __( 'seconds', TEXTDOMAIN )
-					, 'description' => __( 'In seconds. When an error is encountered (in source server response), a cached stale response <strong>may</strong> be used to satisfy the request, regardless of other freshness information. <a href="http://tools.ietf.org/html/rfc5861#section-4" target="_blank"><code>stale-if-error</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
+					, 'description' => __( 'When an error is encountered (in source server response), a cached stale response <strong>may</strong> be used to satisfy the request, regardless of other freshness information. <a href="http://tools.ietf.org/html/rfc5861#section-4" target="_blank"><code>stale-if-error</code></a> parameter of <code>Cache-Control</code> header.', TEXTDOMAIN )
 				)
 				, new WPF\GUI\Validator\Base(
 					sprintf(
