@@ -18,7 +18,8 @@ use \WPF\v1 as WPF;
 require_once( 'wpf' . DIRECTORY_SEPARATOR . 'wpf_inc.php' );
 WPF\Loader::_require_once( 'wpf_plugin_base.php' );
 WPF\Loader::_require_once( 'wpf_plugin_part_load_admin.php' );
-WPF\Loader::_require_once( 'wpf_option_serializable.php' );
+WPF\Loader::_require_once( 'wpf_data_option_base.php' );
+WPF\Loader::_require_once( 'wpf_gui_notice_scheduled.php' );
 
 require_once( 'itg_wordpress_plugin_cachecontrol_inc.php' );
 require_once( 'itg_wordpress_plugin_cachecontrol_headersgenerator.php' );
@@ -26,32 +27,21 @@ require_once( 'itg_wordpress_plugin_cachecontrol_headersgenerator.php' );
 new WPF\Plugin\Base (
 	__FILE__
 
-	, new WPF\Option\Serializable( NO_CACHE, false, true )
-	, new WPF\Option\Serializable( NO_STORE, true, true )
-	, new WPF\Option\Serializable( CACHE_PUBLIC, true, true )
-	, new WPF\Option\Serializable( CACHE_PRIVATE, false, true )
-	, new WPF\Option\Serializable( MAX_AGE, 3600, true )
-	, new WPF\Option\Serializable( MUST_REVALIDATE, false, true )
-	, new WPF\Option\Serializable( PROXY_REVALIDATE, false, true )
-	, new WPF\Option\Serializable( NO_TRANSFORM, false, true )
-	, new WPF\Option\Serializable( STALE_IF_ERROR, 0, true )
-	, new WPF\Option\Serializable( STALE_WHILE_REVALIDATE, 0, true )
-	, new WPF\Option\Serializable( VARY, '', true )
-	, new WPF\Option\Serializable( CACHE_CONTROL_REWRITE_MODE, 'rewrite', true )
+	, new WPF\Data\Option\Base( NO_CACHE, array( 'default_value' => false, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( NO_STORE, array( 'default_value' => true, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( CACHE_PUBLIC, array( 'default_value' => true, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( CACHE_PRIVATE, array( 'default_value' => false, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( MAX_AGE, array( 'default_value' => 3600, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( MUST_REVALIDATE, array( 'default_value' => false, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( PROXY_REVALIDATE, array( 'default_value' => false, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( NO_TRANSFORM, array( 'default_value' => false, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( STALE_IF_ERROR, array( 'default_value' => 0, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( STALE_WHILE_REVALIDATE, array( 'default_value' => 0, 'autoload' => true, 'serialize' => true ))
+	, new WPF\Data\Option\Base( VARY, array( 'default_value' => '', 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( CACHE_CONTROL_REWRITE_MODE, array( 'default_value' => 'rewrite', 'autoload' => true, 'serialize' => true ) )
 
 	/*
-	, new WPF\Meta\Base( NO_CACHE, false, true,
-		new WPF\Setting\Validate\Base(
-			sprintf(
-				__( 'Invalid %2$s parameter %1$s value. Must be empty string, <code>*</code> or comma separated HTTP headers list.', TEXTDOMAIN )
-				, '<code>no-cache</code>'
-				, '<code>Cache-Control</code>'
-			)
-			, false
-			, '\ITG\WordPress\Plugin\CacheControl\is_http_headers_list'
-			, '\ITG\WordPress\Plugin\CacheControl\sanitize_http_headers_list'
-		)
-	)
+	, new WPF\Meta\Post\Base( NO_CACHE, false )
 	*/
 	, new HeadersGenerator()
 
