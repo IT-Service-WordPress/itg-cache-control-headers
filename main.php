@@ -28,8 +28,9 @@ require_once( 'itg_wordpress_plugin_cachecontrol_headersgenerator.php' );
 new WPF\Plugin\Base (
 	__FILE__
 
+	, new WPF\Data\Option\Base( CACHE_CONTROL_REWRITE_MODE, array( 'default_value' => 'rewrite', 'autoload' => true, 'serialize' => true ) )
 	, new WPF\Data\Option\Base( NO_CACHE, array( 'default_value' => false, 'autoload' => true, 'serialize' => true ) )
-	, new WPF\Data\Option\Base( NO_STORE, array( 'default_value' => true, 'autoload' => true, 'serialize' => true ) )
+	, new WPF\Data\Option\Base( NO_STORE, array( 'default_value' => false, 'autoload' => true, 'serialize' => true ) )
 	, new WPF\Data\Option\Base( CACHE_PUBLIC, array( 'default_value' => true, 'autoload' => true, 'serialize' => true ) )
 	, new WPF\Data\Option\Base( CACHE_PRIVATE, array( 'default_value' => false, 'autoload' => true, 'serialize' => true ) )
 	, new WPF\Data\Option\Base( MAX_AGE, array( 'default_value' => 3600, 'autoload' => true, 'serialize' => true ) )
@@ -39,10 +40,10 @@ new WPF\Plugin\Base (
 	, new WPF\Data\Option\Base( STALE_IF_ERROR, array( 'default_value' => 0, 'autoload' => true, 'serialize' => true ) )
 	, new WPF\Data\Option\Base( STALE_WHILE_REVALIDATE, array( 'default_value' => 0, 'autoload' => true, 'serialize' => true ))
 	, new WPF\Data\Option\Base( VARY, array( 'default_value' => '', 'autoload' => true, 'serialize' => true ) )
-	, new WPF\Data\Option\Base( CACHE_CONTROL_REWRITE_MODE, array( 'default_value' => 'rewrite', 'autoload' => true, 'serialize' => true ) )
 
-//	, new WPF\Data\Meta\Post\Base( NO_CACHE, array( 'default_value' => false, 'serialize' => true ) )
-	, new WPF\Data\Meta\Post\Base( CACHE_CONTROL_REWRITE_MODE, array( 'default_value' => 'rewrite', 'serialize' => false ) )
+	, new WPF\Data\Meta\Post\Base( CACHE_CONTROL_REWRITE_MODE, array( 'default_value' => 'rewrite', 'hidden' => true ) )
+	, new WPF\Data\Meta\Post\Base( NO_CACHE, array( 'default_value' => false, 'hidden' => true ) )
+	, new WPF\Data\Meta\Post\Base( NO_STORE, array( 'default_value' => false, 'serialize' => true, 'hidden' => true ) )
 
 	, new HeadersGenerator()
 
