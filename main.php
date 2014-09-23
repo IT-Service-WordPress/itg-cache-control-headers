@@ -3,7 +3,7 @@
 Plugin Name:		ITG Cache-Control headers
 Plugin URI:			https://github.com/IT-Service-WordPress/itg-cache-control-headers
 Description:		Automatically send HTTP 1.1 headers "Cache-control", "Pragma" and "Expires" (<a href="http://tools.ietf.org/html/rfc7234" target="_blank">RFC 7234</a>).
-Version:			1.0.0
+Version:			1.1.0
 Author:				Sergey S. Betke
 Author URI:			https://github.com/sergey-s-betke
 Text Domain:		itg-cache-control-headers

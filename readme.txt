@@ -3,7 +3,7 @@ Contributors: sergey.s.betke@yandex.ru
 Donate link:
 Tags: cache, cache-control
 Requires at least: 3.9.0
-Tested up to: 3.9.1
+Tested up to: 4.0.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,8 +13,10 @@ Automatically send HTTP 1.1 headers "Cache-control", "Pragma" and "Expires".
 == Description ==
 
 Automatically send HTTP 1.1 headers "Cache-control", "Pragma" and "Expires"
-([RFC 7234](<http://www.rfc-editor.org/rfc/rfc7234.txt> "Hypertext Transfer Protocol (HTTP/1.1): Caching")).
-You can set cache TTL in options page.
+([RFC 7234](<http://www.rfc-editor.org/rfc/rfc7234.txt>),
+[RFC 5861](<http://tools.ietf.org/html/rfc5861>).
+You can set cache TTL and other `Cache-Control` parameters in plugin options page.
+Additional, You can set different `Cache-Control` parameters for each page.
 
 Check plugin options on options page.
 
@@ -22,8 +24,12 @@ For more information, please visit the [github repository](https://github.com/IT
 
 == Upgrade Notice ==
 
+= 1.1.0 =
+* support different `Cache-Control` parameters for site pages.
+
 = 1.0.0 =
 * Initial Release
+* support [RFC 7234](<http://www.rfc-editor.org/rfc/rfc7234.txt>) and [RFC 5861](<http://tools.ietf.org/html/rfc5861>) `Cache-Control` parameters for site front-end.
 
 == Installation ==
 
@@ -61,7 +67,7 @@ Just read "installation" section.
 
 = Use shared WPF installation = 
 
-Please, read [installation manual](https://github.com/IT-Service-WordPress/wpf-v1-mu-plugin/wiki/).
+This plugin designed with [WPF framework](https://github.com/IT-Service-WordPress/WPF/).
 
 == Screenshots ==
 
@@ -69,4 +75,4 @@ Please, read [installation manual](https://github.com/IT-Service-WordPress/wpf-v
 
 The next version or later:
 
-* **if-modified** http request support (separate plugins)
+* `if-modified` http request header support
